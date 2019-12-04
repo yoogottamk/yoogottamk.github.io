@@ -1,0 +1,19 @@
+url: "https://yoogottamk.github.io/"
+baseurl: ""
+title: "yoogottamk"
+timezone: "Asia/Kolkata"
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Yoogottam Khandelwal"
