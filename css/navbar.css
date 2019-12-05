@@ -1,0 +1,40 @@
+@keyframes slide {
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    60% {
+        width: 340px;
+    }
+
+    100% {
+        width: 320px;
+    }
+}
+
+.modal.left .modal-dialog {
+    position: fixed;
+    margin: auto;
+
+    width: 320px;
+    height: 100%;
+
+    transform: none;
+
+    animation-name: slide;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.modal.left .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.modal-content {
+    border-radius: 0;
+    border: none;
+}

@@ -1,21 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">
-    <img src="assets/images/yoogottamk.png" alt="" width="30" height="30">
-    yoogottamk
-  </a>
+<link rel="stylesheet" href="{{ site.baseurl }}/css/navbar.css">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#navbarContentSmall">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
+  <a class="navbar-brand" href="/">
+    <img src="{{ site.baseurl }}/assets/images/yoogottamk.png" alt="yk logo" width="30" height="30">
+    yoogottamk
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav ml-auto">
+      {% assign links = site.data.navigation %}
+      {% for link in links %}
+        <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
     </ul>
   </div>
 </nav>
+
+<div class="modal left fade" id="navbarContentSmall" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header"></div>
+      <div class="modal-body">
+        <ul class="navbar-nav ml-auto">
+          {% for link in links %}
+            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+
+        <div class="modal-footer w-100 text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
