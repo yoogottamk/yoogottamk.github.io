@@ -1,4 +1,6 @@
+<!-- custom css for managing navbar -->
 <link rel="stylesheet" href="{{ site.baseurl }}/css/navbar.css">
+<script src="{{ site.baseurl }}/js/navbar.js"></script>
 
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#navbarContentSmall">
@@ -14,7 +16,13 @@
     <ul class="navbar-nav ml-auto">
       {% assign links = site.data.navigation %}
       {% for link in links %}
-        <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">
+            <i class="fa {{ link.icon }} nav-icon align-middle" aria-hidden="true"></i>
+            {{ link.title }}
+          </a>
+          <div class="nav-desc">{{ link.description }}</div>
+        </li>
       {% endfor %}
     </ul>
   </div>
@@ -23,17 +31,21 @@
 <div class="modal left fade" id="navbarContentSmall" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header"></div>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
       <div class="modal-body">
         <ul class="navbar-nav ml-auto">
           {% for link in links %}
-            <li class="nav-item"><a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">
+                <i class="fa {{ link.icon }} nav-icon align-middle" aria-hidden="true"></i>
+                {{ link.title }}
+              </a>
+              <div class="nav-desc">{{ link.description }}</div>
+            </li>
           {% endfor %}
         </ul>
-
-        <div class="modal-footer w-100 text-center">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div>
       </div>
     </div>
   </div>

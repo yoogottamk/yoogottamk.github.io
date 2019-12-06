@@ -1,0 +1,44 @@
+---
+---
+
+body {
+    font-family: "Lato";
+}
+
+.jumbotron {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 0;
+
+    text-align: right;
+    color: white;
+}
+
+.jumbotron:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+
+    background-image: url("{{ site.baseurl }}/assets/vectors/23667.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    height: 40vh;
+
+    filter: blur(5px);
+}
+
+.jumbotron .container {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    bottom: 1rem;
+}

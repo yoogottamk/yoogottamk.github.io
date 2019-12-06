@@ -1,6 +1,12 @@
 - title: Blog
   url: /blog/
+  icon: fa-pencil-square
+  description: My experiences with vim, GNU plus linux and other cool stuff
 - title: Projects
   url: /projects/
+  icon: fa-flash
+  description: Some stuff that I did in the small time I managed to get
 - title: About
   url: /about/
+  icon: fa-info-circle
+  description: Want to know more about me?
