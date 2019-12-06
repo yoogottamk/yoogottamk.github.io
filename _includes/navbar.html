@@ -17,7 +17,7 @@
       {% assign links = site.data.navigation %}
       {% for link in links %}
         <li class="nav-item">
-          <a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">
+          <a class="nav-link {% if page.url contains link.url %}active{% endif %}" href="{{ site.baseurl }}{{ link.url }}">
             <i class="fa {{ link.icon }} nav-icon align-middle" aria-hidden="true"></i>
             {{ link.title }}
           </a>

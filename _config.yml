@@ -20,6 +20,7 @@ defaults:
     values:
       layout: "post"
       author: "Yoogottam Khandelwal"
+      permalink: /blogs/:title
   -
     scope:
       path: "css"

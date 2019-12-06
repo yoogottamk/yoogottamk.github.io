@@ -1,12 +1,12 @@
-- title: Blog
-  url: /blog/
+- title: My blog
+  url: /blogs/
   icon: fa-pencil-square
   description: My experiences with vim, GNU plus linux and other cool stuff
-- title: Projects
+- title: My projects
   url: /projects/
   icon: fa-flash
   description: Some stuff that I did in the small time I managed to get
-- title: About
+- title: About me
   url: /about/
   icon: fa-info-circle
   description: Want to know more about me?

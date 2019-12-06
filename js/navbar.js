@@ -38,6 +38,10 @@ function init() {
                 -${elemPos.left + elemWidth - screenWidth}px,
                 -${elemPos.top - navbarHeight}px
             )`});
+        } else {
+            $activeDesc.css({ "transform": `translateY(
+                -${elemPos.top - navbarHeight}px
+            )`});
         }
     });
 }
