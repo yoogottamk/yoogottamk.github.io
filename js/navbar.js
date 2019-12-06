@@ -1,3 +1,6 @@
+---
+---
+
 /*
  * This script helps me to correctly position the description
  * I show for each item on the navbar. bootstrap doesn't handle
@@ -5,7 +8,7 @@
  */
 
 const activeDescSelector = ".nav-link:hover + .nav-desc",
-    navbarHeight = 60; // px
+    navbarHeight = {{ page.navbarHeight }}; // px
 
 function isCollapsed() {
     return $(window).width() < 992;

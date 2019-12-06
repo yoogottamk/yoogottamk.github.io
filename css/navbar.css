@@ -1,5 +1,8 @@
+---
+---
+
 :root {
-    --navbar-height: 60px;
+    --navbar-height: {{ page.navbarHeight }};
 }
 
 #navbar {

@@ -12,7 +12,7 @@ defaults:
       path: ""
       type: "pages"
     values:
-      layout: "default"
+      layout: "page"
   -
     scope:
       path: ""
@@ -20,3 +20,15 @@ defaults:
     values:
       layout: "post"
       author: "Yoogottam Khandelwal"
+  -
+    scope:
+      path: "css"
+    values:
+      layout: "null"
+      navbarHeight: "60px"
+  -
+    scope:
+      path: "js"
+    values:
+      layout: "null"
+      navbarHeight: 60
