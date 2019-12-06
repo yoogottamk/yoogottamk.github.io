@@ -2,6 +2,7 @@
 layout: page
 title: "Lost?"
 ---
+
 <link rel="stylesheet" href="{{ site.baseurl }}/css/404.css">
 
 <div class="jumbotron jumbotron-fluid">
@@ -11,5 +12,11 @@ title: "Lost?"
 </div>
 
 <div class="container">
-  <h2>Lost? Let me help you get to the right place</h2>
+  <h2>Lost?<br>Let me help you get to the right place</h2>
+  <div class="known-pages">
+    <h5>Here's a list of pages known to us, sorted by edit distance to their urls</h5>
+    <ul id="page-list"></ul>
+  </div>
 </div>
+
+<script src="{{ site.baseurl }}/js/404.js"></script>

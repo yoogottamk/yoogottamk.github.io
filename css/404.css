@@ -1,6 +1,24 @@
 ---
 ---
 
+#page-list {
+    font-size: 1.5rem;
+}
+
+#page-list li {
+    list-style: none;
+}
+
+#page-list li:before {
+    content: "\f0a9";
+    font-family: FontAwesome;
+    margin-right: 15px;
+}
+
+.known-pages {
+    margin-top: 15px;
+}
+
 .jumbotron {
     position: relative;
 
@@ -15,7 +33,7 @@
     color: white;
 }
 
-.jumbotron .container {
+.jumbotron > .container {
     position: absolute;
     left: 0;
     right: 0;
