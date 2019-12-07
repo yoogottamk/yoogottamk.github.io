@@ -1,4 +1,24 @@
+---
+---
+
+:root {
+    --fg: {{ page.darkFg }};
+    --bg: {{ page.darkBg }};
+}
+
+[data-theme="light"] {
+    --fg: {{ page.lightFg }};
+    --bg: {{ page.lightBg }};
+}
+
 body {
     padding-top: 60px;
     font-family: "Lato";
+
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+a {
+    color: #33a2ff;
 }

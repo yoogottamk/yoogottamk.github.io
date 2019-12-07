@@ -2,11 +2,21 @@
 ---
 
 :root {
+    --bg: {{ page.darkBg }};
+    --fg: {{ page.darkFg }};
+
     --navbar-height: {{ page.navbarHeight }};
+    --navbar-color: {{ page.darkBg }};
+}
+
+[data-theme="light"] {
+    --bg: {{ page.lightBg }};
+    --fg: {{ page.lightFg }};
 }
 
 #navbar {
     height: var(--navbar-height);
+    background-color: var(--navbar-color);
 }
 
 @keyframes slide {
@@ -46,6 +56,17 @@
 
     border-radius: 0;
     border: none;
+
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+.modal.left .modal-header {
+    border-bottom-color: var(--fg);
+}
+
+.modal.left .modal-header .close {
+    color: var(--fg);
 }
 
 .nav-icon {
@@ -55,6 +76,18 @@
 
 ul li.nav-item {
     position: relative;
+}
+
+@media (max-width: 991px) {
+    .nav-desc {
+        font-size: 0.9rem;
+    }
+
+    .navbar-nav hr {
+        width: 100%;
+        border-color: var(--fg);
+        opacity: 0.5;
+    }
 }
 
 @media (min-width: 992px) {
