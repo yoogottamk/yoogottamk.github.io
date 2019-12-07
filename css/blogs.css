@@ -17,12 +17,22 @@
     background-color: var(--card-bg);
 }
 
+.md-form input {
+    background-color: var(--bg) !important;
+    color: var(--fg) !important;
+}
+
 .container .row .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor: pointer;
 }
 
 .container .row .card .card-body a {
     width: 0;
     height: 0;
+}
+
+#not-found {
+    text-align: center;
+    font-size: 1.5rem;
 }
