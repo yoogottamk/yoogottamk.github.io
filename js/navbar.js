@@ -7,9 +7,6 @@
  * this by default :(
  */
 
-const activeDescSelector = ".nav-link:hover + .nav-desc",
-    navbarHeight = {{ page.navbarHeight }}; // px
-
 function isCollapsed() {
     return $(window).width() < 992;
 }
@@ -19,6 +16,9 @@ function willCross(elemLeftPos, elemWidth, screenWidth) {
 }
 
 function init() {
+    const activeDescSelector = ".nav-link:hover + .nav-desc",
+        navbarHeight = {{ page.navbarHeight }}; // px
+
     if(isCollapsed())
         return;
 
@@ -34,13 +34,8 @@ function init() {
             screenWidth = $(window).width();
 
         if(willCross(elemPos.left, elemWidth, screenWidth)) {
-            $activeDesc.css({ "transform": `translate(
-                -${elemPos.left + elemWidth - screenWidth}px,
-                -${elemPos.top - navbarHeight}px
-            )`});
-        } else {
-            $activeDesc.css({ "transform": `translateY(
-                -${elemPos.top - navbarHeight}px
+            $activeDesc.css({ "transform": `translateX(
+                -${elemPos.left + elemWidth - screenWidth}px
             )`});
         }
     });
