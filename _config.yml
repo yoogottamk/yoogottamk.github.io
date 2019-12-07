@@ -34,3 +34,9 @@ defaults:
     values:
       layout: "null"
       navbarHeight: 60
+
+collections:
+  projects:
+    output: true
+    layout: "project"
+    permalink: /projects/:title
