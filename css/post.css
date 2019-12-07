@@ -1,0 +1,23 @@
+---
+---
+
+.jumbotron {
+    position: relative;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 40vh;
+
+    text-align: right;
+    color: white;
+}
+
+.jumbotron > .container {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    bottom: 1rem;
+}

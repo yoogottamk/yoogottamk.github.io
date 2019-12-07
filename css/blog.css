@@ -1,0 +1,28 @@
+---
+---
+
+:root {
+    --card-bg: #000;
+    --card-fg: {{ page.darkFg }};
+}
+
+[data-theme="light"] {
+    --card-bg: #fff;
+    --card-fg: {{ page.lightFg }};
+}
+
+.container .row .card {
+    max-width: 300px;
+    transition: 0.3s ease-in;
+    background-color: var(--card-bg);
+}
+
+.container .row .card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.container .row .card .card-body a {
+    width: 0;
+    height: 0;
+}

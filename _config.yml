@@ -3,9 +3,6 @@ baseurl: ""
 title: "yoogottamk"
 timezone: "Asia/Kolkata"
 
-plugins:
- - jekyll-autoprefixer
-
 defaults:
   -
     scope:

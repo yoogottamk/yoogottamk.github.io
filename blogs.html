@@ -1,18 +1,40 @@
 ---
-layout: null
+layout: page
 permalink: /blogs/
 title: My blogs
 ---
+<!--
+{% for blog in site.posts %}
+  title: {{ blog.title }}<br>
+  excerpt: {{ blog.excerpt }}<br>
+  date: {{ blog.date }}<br>
+  id: {{ blog.id }}<br>
+  tags: {{ blog.tags }}<br>
+  name: {{ blog.name }}<br>
+  path: {{ blog.path }}<br>
+  n: {{ blog.next.url }}<br>
+  p: {{ blog.previous.url }}<br>
+  title: {{ blog.blogTitle }}<br>
+  image: {{ blog.blogImage }}
+  <hr>
+{% endfor %}
+-->
 
-<!doctype html>
-<html lang="en">
-{% include head.html %}
-<body>
-  {% include navbar.html %}
+<link rel="stylesheet" href="{{ site.baseurl }}/css/blog.css">
 
-  {{ content }}
-
-  {% include scripts.html %}
-  {% include footer.html %}
-</body>
-</html>
+<div class="container">
+  <div class="row justify-content-center">
+    {% for blog in site.posts %}
+      <div class="card mx-2 mb-3">
+        <img src="{{ site.baseurl }}/assets/images/{{ blog.blogImage }}" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">{{ blog.excerpt }}</p>
+          <a class="stretched-link" href="{{ blog.url }}"></a>
+          {% for tag in blog.tags %}
+            {{ tag }} {% unless forloop.last %} | {% endunless %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
