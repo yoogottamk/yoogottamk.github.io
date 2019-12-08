@@ -21,3 +21,24 @@
 
     bottom: 1rem;
 }
+
+.blockquote {
+    padding: 3px 3px 3px 15px;
+    border-left: 3px solid gray;
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+#post-body {
+    font-size: 1.25rem;
+}
+
+.section-header {
+    text-transform: uppercase;
+    font-family: 'Bebas Neue';
+    font-size: 4rem;
+}
+
+pre.highlight {
+    padding: 15px;
+}

@@ -12,7 +12,7 @@
 
 <!-- fonts, included only where required to reduce load time -->
 {% for url in site.data.fonts %}
-  {% if page.url == url[0] %}
+  {% if page.url contains url[0] %}
     {% for fonts in url[1] %}
       <link href="{{ fonts }}" rel="stylesheet" />
     {% endfor %}

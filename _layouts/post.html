@@ -3,12 +3,16 @@ layout: page
 ---
 
 <link rel="stylesheet" href="{{ site.baseurl }}/css/post.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css">
 
 <div class="jumbotron jumbotron-fluid"
      style='background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("{{ site.baseurl }}/assets/images/{{ page.blogImage }}");'>
   <div class="container">
     <h1>{{ page.blogTitle }}</h1>
+    {{ page.date | date: '%B %d, %Y' }}
   </div>
 </div>
 
-{{ content }}
+<div class="container" id="post-body">
+  {{ content }}
+</div>
