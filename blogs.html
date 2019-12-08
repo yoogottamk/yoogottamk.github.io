@@ -21,6 +21,8 @@ title: My blogs
           <h4 class="card-title">{{ blog.blogTitle }}</h4>
           <p class="card-text">{{ blog.excerpt | truncatewords: 20 }}</p>
           <a class="stretched-link" href="{{ blog.url }}"></a>
+          <span class="font-italic">{{ blog.date | date: '%B %d, %Y' }}</span>
+          <hr>
           <div class="mt-auto text-right">
             {% for tag in blog.tags %}
               <kbd>{{ tag }}</kbd>
