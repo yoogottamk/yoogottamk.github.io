@@ -17,6 +17,11 @@
     background-color: var(--card-bg);
 }
 
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
 .md-form input {
     background-color: var(--bg) !important;
     color: var(--fg) !important;

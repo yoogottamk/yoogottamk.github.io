@@ -18,9 +18,9 @@ const allProjects = [
 
 function isRelevant(project, query) {
     return (
-        project.title.includes(query) ||
-        project.content.includes(query) ||
-        project.tags.join("|").includes(query)
+        project.title.toLowerCase().includes(query) ||
+        project.content.toLowerCase().includes(query) ||
+        project.tags.join("|").toLowerCase().includes(query)
     );
 }
 
@@ -55,7 +55,7 @@ function init() {
         let relevantProjects = getRelevantProjects(query);
 
         if(!relevantProjects.length) {
-            $notFound.html("Sorry, I haven't worked on this (yet)!");
+            $notFound.html("I haven't worked on this (yet)!");
         }
 
         $parent.children().each(function() {

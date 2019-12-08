@@ -5,8 +5,10 @@ const knownPageList = [
     {% for page in site.html_pages %}
         "{{ page.url }}",
     {% endfor %}
-    {% for page in site.posts %}
-        "{{ page.url }}",
+    {% for collection in site.collections %}
+        {% for page in site[collection.label] %}
+            "{{ page.url }}",
+        {% endfor %}
     {% endfor %}
 ],
     url = window.location.pathname;

@@ -18,9 +18,9 @@ const allBlogs = [
 
 function isRelevant(blog, query) {
     return (
-        blog.title.includes(query) ||
-        blog.content.includes(query) ||
-        blog.tags.join("|").includes(query)
+        blog.title.toLowerCase().includes(query) ||
+        blog.content.toLowerCase().includes(query) ||
+        blog.tags.join("|").toLowerCase().includes(query)
     );
 }
 
