@@ -1,38 +1,38 @@
 ---
 ---
 
-const allBlogs = [
-{% for blog in site.projects %}
+const allProjects = [
+{% for project in site.projects %}
     {
-        "id": "{{ blog.id | strip_newlines | escape }}",
+        "id": "{{ project.id | strip_newlines | escape }}",
         "tags": [
-        {% for tag in blog.tags %}
+        {% for tag in project.tags %}
             "{{ tag }}",
         {% endfor %}
         ],
-        "title": "{{ blog.blogTitle | strip_newlines | escape }}",
-        "content": "{{ blog.content | strip_newlines | escape }}"
+        "title": "{{ project.projectTitle | strip_newlines | escape }}",
+        "content": "{{ project.content | strip_newlines | escape }}"
     },
 {% endfor %}
 ];
 
-function isRelevant(blog, query) {
+function isRelevant(project, query) {
     return (
-        blog.title.includes(query) ||
-        blog.content.includes(query) ||
-        blog.tags.join("|").includes(query)
+        project.title.includes(query) ||
+        project.content.includes(query) ||
+        project.tags.join("|").includes(query)
     );
 }
 
-function getRelevantBlogs(query) {
-    let relevantBlogs = [];
+function getRelevantProjects(query) {
+    let relevantProjects = [];
 
-    allBlogs.forEach(blog => {
-        if(isRelevant(blog, query))
-            relevantBlogs.push(blog.id);
+    allProjects.forEach(project => {
+        if(isRelevant(project, query))
+            relevantProjects.push(project.id);
     });
 
-    return relevantBlogs;
+    return relevantProjects;
 }
 
 function init() {
@@ -40,7 +40,7 @@ function init() {
 
     $searchBar.on("input propertychange", function() {
         let query = $searchBar.val(),
-            $parent = $("div.posts"),
+            $parent = $("div.projects"),
             $notFound = $("#not-found");
 
         $notFound.html("");
@@ -52,14 +52,14 @@ function init() {
             return;
         }
 
-        let relevantBlogs = getRelevantBlogs(query);
+        let relevantProjects = getRelevantProjects(query);
 
-        if(!relevantBlogs.length) {
-            $notFound.html("No such post has been written (yet)!");
+        if(!relevantProjects.length) {
+            $notFound.html("Sorry, I haven't worked on this (yet)!");
         }
 
         $parent.children().each(function() {
-            if(!relevantBlogs.includes($(this).attr("id")))
+            if(!relevantProjects.includes($(this).attr("id")))
                 $(this).css({ "display": "none" });
         });
     });
