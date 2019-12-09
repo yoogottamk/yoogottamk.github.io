@@ -36,6 +36,9 @@
 .section-header {
     text-transform: uppercase;
     font-family: 'Bebas Neue';
+}
+
+h1.section-header {
     font-size: 4rem;
 }
 

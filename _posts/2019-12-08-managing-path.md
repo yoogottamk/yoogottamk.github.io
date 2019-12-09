@@ -7,8 +7,7 @@ tags:
  - GNU/Linux
 ---
 
-<h1 class="section-header">Introduction</h1>
-i use arch btw. Now that we have established that, lets see what the `PATH` variable is.
+i use arch btw. Now that we have established that, lets see what the `PATH` variable is and how it works.
 
 According to <a href="http://www.linfo.org/path_env_var.html">linfo</a>,
 <blockquote class="blockquote"><code>PATH</code> is an environmental variable in Linux and other Unix-like operating systems that tells the shell which directories to search for executable files (i.e., ready-to-run programs) in response to commands issued by a user. It increases both the convenience and the safety of such operating systems and is widely considered to be the single most important environmental variable.</blockquote>
@@ -24,9 +23,8 @@ $ echo $PATH
 
 It is a list of directories separated by \``:`\`. The shell searches for the executable in each directory and ends the search as soon as it finds a file with the same name. *That also means that the order of directories in `PATH` matters.*
 
-{% include divide.html %}
+{% include post-heading.html header="The usual method" %}
 
-<h1 class="section-header">The usual method</h1>
 The "standard" way of setting the `PATH`, as seen in the top search result on <a href="https://superuser.com/a/488175">superuser</a> is this:
 ```shell
 $ export PATH=$PATH:/your/new/path/here
@@ -45,35 +43,63 @@ export PATH=$PATH:/here/we/go/again
 
 This is bad practice. Updating the variable to remove a directory can be messy, and what if you want to give preference to a directory for an executable? You'll have to change the order in which they are added to `PATH`. Doing it when your `PATH` updates are scattered all over the place doesn't look easy, right?
 
-Even if you do this in a single line, it can be a little overwhelming sometimes:
+Even if you write all the directories in a single line, it get a little overwhelming sometimes:
 ```shell
 export PATH=$PATH:/your/new/path/here:/another/new/path/here:/oh/and/a/second/too:/here/we/go/again:...
 ```
 
-{% include divide.html %}
+{% include post-heading.html header="What I do" %}
 
-<h1 class="section-header">What I do</h1>
 I keep all my `PATH` updates in a single file and source that file in `~/.profile`.
 
 That file looks like this:
 ```shell
 #!/bin/bash
 
-path_dirs=(
+# directories which get prepended
+prepend_dirs=(
     "$HOME/bin"
-    "$HOME/.some-dir"
-    "$HOME/.local/bin"
     "$HOME/projects/some-project"
     "$HOME/projects/another-one"
+    ...
+)
+
+# directories which get appended
+append_dirs=(
+    "$HOME/.some-dir"
+    "$HOME/.local/bin"
     "/usr/local/android-studio/bin"
     "$HOME/flutter/bin"
     "$HOME/.cargo/bin"
     ...
 )
 
-appended_path=$(IFS=":$IFS"; printf "%s" "${path_dirs[*]}")
+# generate the strings
+prepend_path=$(IFS=":"; echo "${prepend_dirs[*]}")
+append_path=$(IFS=":"; echo "${append_dirs[*]}")
 
-export PATH="$PATH:$appended_path"
+# wth is this?!
+export PATH="${prepend_path:+${prepend_path}:}$PATH${append_path:+:${append_path}}"
 ```
 
-Explanation:
+<h2 class="section-header pt-4">Explanation</h2>
+I maintain two arrays: one for prepending and one for appending.
+
+I generate the string (`prepend_path, append_path`) which gets added to `PATH`. This does not pollute your `IFS`, since the whole command is ran in a subshell. Also, printing `${array[*]}` expands to all elements separated by the first character of `IFS`, which currently is \``:`\`.
+
+The last line is special. It could simply have been
+
+```shell
+export PATH="$prepend_path:$PATH:$append_path"
+```
+
+Although, a problem might arise when either `prepend_path` or `append_path` is empty. The final `PATH` might end up looking like this: `:/usr/bin:/usr/sbin:...:/home/user/bin:`.
+
+Solution: bash array parameter expansion
+<blockquote class="blockquote">
+<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">${parameter:+word}</a>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If parameter is null or unset, nothing is substituted, otherwise the expansion of word is substituted.
+</blockquote>
+
+So, if either of them are empty, the corresponding \``:`\` won't be added. Cool!
