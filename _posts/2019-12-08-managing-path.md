@@ -1,7 +1,7 @@
 ---
 layout: post
 blogTitle: How I manage PATH
-blogImage: 404.jpg
+blogImage: path.webp
 tags:
  - PATH
  - GNU/Linux
@@ -104,7 +104,9 @@ Solution: bash array parameter expansion
 
 So, if either of them are empty, the corresponding \``:`\` won't be added. Cool!
 
-{% include post-heading.html header="" %}
 This way, you can easily add/remove directories from `PATH` and easily manage the order too.
+
+{% include post-heading.html header="" %}
+This file, along with various other config files can be found in my <a href="https://github.com/yoogottamk/dotfiles">dotfiles</a> repo.
 
 So, did you like it? Did I miss something? Did I do something in the wrong way? Please comment below and improve my knowledge!
