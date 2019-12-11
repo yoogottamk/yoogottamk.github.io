@@ -19,7 +19,7 @@ People usually choose the one which they see others using. Some go ahead and try
 
 I love vim. I have been using it as my primary text editor (for programming and all other purposes) since 2016. Some other text editors which I have used (and still do if something unique to that editor comes up) are:
 <ul>
-  {% for editor in site.data.2019-12-11-text-editors['editors'] %}
+  {% for editor in site.data['2019-12-11-text-editors'].editors %}
     <li><a href="{{ editor.link }}">{{ editor.name }}</a></li>
   {% endfor %}
   <li>Some more that I don't remember now</li>
@@ -30,7 +30,7 @@ I love vim. I have been using it as my primary text editor (for programming and 
 Before settling on vim, I used Notepad++, Atom, Sublime Text and VS Code as my primary text editor for a long time. I used to switch between them a lot, trying to find the perfect one. Here is what I think about them:
 
 <hr class="w-75 my-5" style="background-color: gray; height: 1px; border: 0;">
-{% for editor in site.data.2019-12-11-text-editors['comparison'] %}
+{% for editor in site.data['2019-12-11-text-editors'].comparison %}
   <h2>{{ editor.name }}</h2>
   {{ editor.desc }}
 
