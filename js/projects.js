@@ -39,7 +39,7 @@ function init() {
     let $searchBar = $("#searchBar");
 
     $searchBar.on("input propertychange", function() {
-        let query = $searchBar.val(),
+        let query = $searchBar.val().toLowerCase(),
             $parent = $("div.projects"),
             $notFound = $("#not-found");
 
