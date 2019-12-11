@@ -1,6 +1,8 @@
 url: "https://yoogottamk.github.io/"
 baseurl: ""
 title: "yoogottamk"
+email: "yoogottamk@outlook.com"
+github_username: "yoogottamk"
 timezone: "Asia/Kolkata"
 
 defaults:
@@ -17,7 +19,8 @@ defaults:
     values:
       layout: "post"
       author: "Yoogottam Khandelwal"
-      permalink: /blogs/:title
+      comments: true
+      permalink: /blog/:title
   -
     scope:
       path: "css"

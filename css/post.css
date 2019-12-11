@@ -38,6 +38,10 @@
     font-family: 'Bebas Neue';
 }
 
+h1,h2,h3,h4,h5,h6 {
+    color: white;
+}
+
 h1.section-header {
     font-size: 4rem;
 }

@@ -9,14 +9,14 @@ layout: page
      style='background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("{{ site.baseurl }}/assets/images/{{ page.blogImage }}");'>
   <div class="container">
     <h1>{{ page.blogTitle }}</h1>
-    {{ page.date | date: '%B %d, %Y' }} ｜ 
-    <span class="reading-time" title="Estimated read time">
-      {% assign words = page.content | strip_html | number_of_words %}
-      {{ words | divided_by: 180 | plus: 1 }} min read
-    </span>
+    {{ page.date | date: '%B %d, %Y' }}
   </div>
 </div>
 
 <div class="container" id="post-body">
   {{ content }}
+
+  <hr class="w-100 py-4">
+
+  {% include disqus.html %}
 </div>

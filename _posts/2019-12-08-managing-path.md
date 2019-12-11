@@ -103,3 +103,8 @@ Solution: bash array parameter expansion
 </blockquote>
 
 So, if either of them are empty, the corresponding \``:`\` won't be added. Cool!
+
+{% include post-heading.html header="" %}
+This way, you can easily add/remove directories from `PATH` and easily manage the order too.
+
+So, did you like it? Did I miss something? Did I do something in the wrong way? Please comment below and improve my knowledge!
