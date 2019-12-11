@@ -17,8 +17,22 @@ body {
 
     background-color: var(--bg);
     color: var(--fg);
+
+    display: flex;
+    flex-direction: column;
 }
 
 a {
     color: #33a2ff;
+}
+
+html, body {
+    height: 100%;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+.footer {
+    flex-shrink: 0;
 }
