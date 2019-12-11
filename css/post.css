@@ -49,3 +49,39 @@ h1.section-header {
 pre.highlight {
     padding: 15px;
 }
+
+.suggested {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+    height: 250px;
+
+    padding: 2rem 0;
+    margin: 3rem auto;
+}
+
+.suggested div {
+    position: relative;
+
+    margin: 1rem;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    transition: 0.3s ease-in;
+}
+
+.suggested div:hover {
+    transform: scale(1.05);
+}
+
+.suggested div span {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}

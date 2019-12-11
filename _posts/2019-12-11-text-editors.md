@@ -46,3 +46,7 @@ Before settling on vim, I used Notepad++, Atom, Sublime Text and VS Code as my p
 
   <hr class="w-75 my-5" style="background-color: gray; height: 1px; border: 0;">
 {% endfor %}
+
+{% include post-heading.html %}
+
+This is my view of a few editors. Do you have something more to add? Please comment below!
