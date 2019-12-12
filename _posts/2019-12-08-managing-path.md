@@ -5,6 +5,8 @@ blogImage: path.webp
 tags:
  - PATH
  - GNU/Linux
+credits:
+  - ["unsplash", "https://unsplash.com/"]
 ---
 
 i use arch btw. Now that we have established that, lets see what the `PATH` variable is and how it works.

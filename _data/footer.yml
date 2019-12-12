@@ -1,0 +1,13 @@
+presence:
+  - name: github
+    url: "https://github.com/yoogottamk/"
+    icon: fa-github
+  - name: linkedin
+    url: "https://www.linkedin.com/in/yoogottamk/"
+    icon: fa-linkedin-square
+  - name: facebook
+    url: "https://www.facebook.com/yoogottamk"
+    icon: fa-facebook
+  - name: mail
+    url: "mailto:yoogottamk@outlook.com"
+    icon: fa-envelope

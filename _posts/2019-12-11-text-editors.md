@@ -9,6 +9,8 @@ tags:
  - vscode
  - sublime
  - emacs
+credits:
+  - ["undraw", "https://undraw.co/"]
 ---
 
 A text editor is a program that lets you edit text. There are a LOT OF text editors out there and choosing among them can be a difficult task.
@@ -27,7 +29,7 @@ I love vim. I have been using it as my primary text editor (for programming and 
 
 {% include post-heading.html header="My experiences" %}
 
-Before settling on vim, I used Notepad++, Atom, Sublime Text and VS Code as my primary text editor for a long time. I used to switch between them a lot, trying to find the perfect one. Here is what I think about them:
+Before settling on vim, I used Notepad++, Atom, Sublime Text and VS Code as my primary text editor for a long time. I used to switch between them a lot, trying to find the perfect one. Here is what I think about some of them:
 
 <hr class="w-75 my-5" style="background-color: gray; height: 1px; border: 0;">
 {% for editor in site.data['2019-12-11-text-editors'].comparison %}
@@ -49,4 +51,6 @@ Before settling on vim, I used Notepad++, Atom, Sublime Text and VS Code as my p
 
 {% include post-heading.html %}
 
-This is my view of a few editors. Do you have something more to add? Please comment below!
+This was my experience with a few editors.
+
+Do you have something more to add? Which is your favourite and why? Please comment below!

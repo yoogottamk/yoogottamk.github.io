@@ -4,6 +4,8 @@
 :root {
     --fg: {{ page.darkFg }};
     --bg: {{ page.darkBg }};
+
+    --navbar-height: {{ page.navbarHeight }};
 }
 
 [data-theme="light"] {
@@ -12,7 +14,7 @@
 }
 
 body {
-    padding-top: 60px;
+    padding-top: var(--navbar-height);
     font-family: "Lato";
 
     background-color: var(--bg);

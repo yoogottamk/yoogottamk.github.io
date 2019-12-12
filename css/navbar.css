@@ -16,7 +16,7 @@
 
 #navbar {
     height: var(--navbar-height);
-    background-color: var(--navbar-color);
+    background: var(--navbar-color);
 }
 
 @keyframes slide {

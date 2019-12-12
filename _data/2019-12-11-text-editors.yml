@@ -47,7 +47,7 @@ comparison:
     desc: "It's a terminal-based text editor which came out in 1991. A graphical version also exists (gvim). It is a modal text editor and has a very steep learning curve. I remember constantly switching to other editors when I started learning it. \n\nThis whole website is proud of being written using vim. Although 'Why vim is good' requires a full post, here are a few reasons why I still use it:"
     good:
       - Highly customizable, extendible
-      - Modal editing rocks! The operators and motions!
+      - Modal editing rocks! Love those operators and motions!
       - Closely integrated with the shell, so running commands on the text is easy
       - Low resource requirement, extremely fast
       - Lots of plugins
