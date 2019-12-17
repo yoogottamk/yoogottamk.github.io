@@ -1,9 +1,10 @@
-url: "https://yoogottamk.github.io/"
-baseurl: ""
+url: "https://yoogottamk.github.io"
+baseurl: "/own-website"
 title: "yoogottamk"
 email: "yoogottamk@outlook.com"
 github_username: "yoogottamk"
 timezone: "Asia/Kolkata"
+exclude: ["package*.json", "gulpfile.js"]
 
 defaults:
   -

@@ -3,11 +3,11 @@
 
 const knownPageList = [
     {% for page in site.html_pages %}
-        "{{ page.url }}",
+        "{{ page.url | relative_url }}",
     {% endfor %}
     {% for collection in site.collections %}
         {% for page in site[collection.label] %}
-            "{{ page.url }}",
+            "{{ page.url | relative_url }}",
         {% endfor %}
     {% endfor %}
 ],
@@ -40,7 +40,7 @@ function init() {
     let $list = $("#page-list");
     $list.html("");
 
-    knownPageList.splice(knownPageList.indexOf("/404.html"), 1);
+    knownPageList.splice(knownPageList.indexOf("{{ '/404.html' | relative_url }}"), 1);
 
     pageEditDistance = [];
     knownPageList.forEach(page => pageEditDistance.push({ "dist": editDistance(url, page), "page": page }));

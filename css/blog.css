@@ -22,6 +22,10 @@
     object-fit: cover;
 }
 
+.card-title {
+    color: white;
+}
+
 .md-form {
     display: flex;
     flex-direction: row;

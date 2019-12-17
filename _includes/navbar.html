@@ -1,14 +1,14 @@
 <!-- custom css for managing navbar -->
-<link rel="stylesheet" href="{{ site.baseurl }}/css/navbar.css" />
-<script src="{{ site.baseurl }}/js/navbar.js"></script>
+<link rel="stylesheet" href="{{ '/css/navbar.css' | relative_url }}" />
+<script src="{{ '/js/navbar.js' | relative_url }}"></script>
 
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
   <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#navbarContentSmall" aria-label="Show/hide navbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <a class="navbar-brand" href="/">
-    <img src="{{ site.baseurl }}/assets/images/yoogottamk.webp" alt="yk logo" width="30" height="30">
+  <a class="navbar-brand" href="{{ '/' | relative_url }}">
+    <img src="{{ '/assets/images/yoogottamk.webp' | relative_url }}" alt="yk logo" width="30" height="30">
     yoogottamk
   </a>
 
@@ -17,7 +17,7 @@
       {% assign links = site.data.navigation %}
       {% for link in links %}
         <li class="nav-item">
-          <a class="nav-link {% if page.url contains link.url %}active{% endif %}" href="{{ site.baseurl }}{{ link.url }}">
+          <a class="nav-link {% if page.url contains link.url %}active{% endif %}" href="{{ link.url | relative_url }}">
             <i class="fa {{ link.icon }} nav-icon align-middle" aria-hidden="true"></i>
             {{ link.title }}
           </a>
@@ -38,7 +38,7 @@
         <ul class="navbar-nav ml-auto">
           {% for link in links %}
             <li class="nav-item">
-              <a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">
+              <a class="nav-link" href="{{ link.url | relative_url }}">
                 <i class="fa {{ link.icon }} nav-icon align-middle" aria-hidden="true"></i>
                 {{ link.title }}
               </a>
