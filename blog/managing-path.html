@@ -148,7 +148,7 @@
 <div class="container" id="post-body">
   <p>i use arch btw. Now that we have established that, lets see what the <code class="highlighter-rouge">PATH</code> variable is and how it works.</p>
 
-<p>According to <a href="http://www.linfo.org/path_env_var.html" target="_blank">linfo</a>,</p>
+<p>According to <a href="http://www.linfo.org/path_env_var.html" target="_blank" rel="noopener">linfo</a>,</p>
 <blockquote class="blockquote"><code>PATH</code> is an environmental variable in Linux and other Unix-like operating systems that tells the shell which directories to search for executable files (i.e., ready-to-run programs) in response to commands issued by a user. It increases both the convenience and the safety of such operating systems and is widely considered to be the single most important environmental variable.</blockquote>
 
 <div class="py-4"></div>
@@ -165,7 +165,7 @@
 
 <h1 class="section-header">The usual method</h1>
 
-<p>The “standard” way of setting the <code class="highlighter-rouge">PATH</code>, as seen in the top search result on <a href="https://superuser.com/a/488175" target="_blank">superuser</a> is this:</p>
+<p>The “standard” way of setting the <code class="highlighter-rouge">PATH</code>, as seen in the top search result on <a href="https://superuser.com/a/488175" target="_blank" rel="noopener">superuser</a> is this:</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/your/new/path/here
 </code></pre></div></div>
 
@@ -181,7 +181,7 @@
 
 <p>This is bad. Updating the variable to remove a directory can be time consuming, and what if you want to give preference to a directory for an executable? You’ll have to change the order in which they are added to <code class="highlighter-rouge">PATH</code>. Doing it when your <code class="highlighter-rouge">PATH</code> updates are scattered all over the place doesn’t make it easy.</p>
 
-<p>Even if you write all the directories in a single line, it get a little too long to handle sometimes:</p>
+<p>Even if you write all the directories in a single line, it can get a little too long to handle sometimes:</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/your/new/path/here:/another/new/path/here:/oh/and/a/second/too:/here/we/go/again:...
 </code></pre></div></div>
 
@@ -234,7 +234,7 @@
 
 <p>Solution: bash array parameter expansion</p>
 <blockquote class="blockquote">
-<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html" target="_blank">${parameter:+word}</a>
+<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html" target="_blank" rel="noopener">${parameter:+word}</a>
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;If parameter is null or unset, nothing is substituted, otherwise the expansion of word is substituted.
 </blockquote>
@@ -247,7 +247,7 @@
 
 <h1 class="section-header"></h1>
 
-<p>This file, along with various other config files can be found in my <a href="https://github.com/yoogottamk/dotfiles" target="_blank">dotfiles</a> repo.</p>
+<p>This file, along with various other config files can be found in my <a href="https://github.com/yoogottamk/dotfiles" target="_blank" rel="noopener">dotfiles</a> repo.</p>
 
 <p>So, did you like it? Did I miss something? Did I do something in the wrong way? Please comment below and improve my knowledge!</p>
 
