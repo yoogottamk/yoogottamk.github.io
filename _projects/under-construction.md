@@ -9,4 +9,4 @@ credits:
 
 I have worked on a lot of other projects, I need some time to put them up here.
 
-Thank you for the patience!
+Thank you for your patience!
