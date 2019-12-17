@@ -179,9 +179,9 @@
 ...
 </code></pre></div></div>
 
-<p>This is bad practice. Updating the variable to remove a directory can be messy, and what if you want to give preference to a directory for an executable? You’ll have to change the order in which they are added to <code class="highlighter-rouge">PATH</code>. Doing it when your <code class="highlighter-rouge">PATH</code> updates are scattered all over the place doesn’t look easy, right?</p>
+<p>This is bad. Updating the variable to remove a directory can be time consuming, and what if you want to give preference to a directory for an executable? You’ll have to change the order in which they are added to <code class="highlighter-rouge">PATH</code>. Doing it when your <code class="highlighter-rouge">PATH</code> updates are scattered all over the place doesn’t make it easy.</p>
 
-<p>Even if you write all the directories in a single line, it get a little overwhelming sometimes:</p>
+<p>Even if you write all the directories in a single line, it get a little too long to handle sometimes:</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/your/new/path/here:/another/new/path/here:/oh/and/a/second/too:/here/we/go/again:...
 </code></pre></div></div>
 
