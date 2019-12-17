@@ -6,7 +6,7 @@
     <span>
       <ul class="list-unstyled list-group list-group-horizontal">
         {% for p in site.data.footer['presence'] %}
-          <li class="icon-li"><a href="{{ p.url }}"><i class="fa {{ p.icon }}"></i></a></li>
+          <li class="icon-li"><a href="{{ p.url }}" target="_blank"><i class="fa {{ p.icon }}"></i></a></li>
         {% endfor %}
       </ul>
     </span>
@@ -19,7 +19,7 @@
     {% endif %}
     {% for credit in page.credits %}
       <ul class="list-unstyled">
-        <li><a href="{{ credit[1] }}">{{ credit[0] }}</a></li>
+        <li><a href="{{ credit[1] }}" target="_blank">{{ credit[0] }}</a></li>
       </ul>
     {% endfor %}
   </div>

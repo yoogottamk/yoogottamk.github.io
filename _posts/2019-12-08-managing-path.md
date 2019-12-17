@@ -11,7 +11,7 @@ credits:
 
 i use arch btw. Now that we have established that, lets see what the `PATH` variable is and how it works.
 
-According to <a href="http://www.linfo.org/path_env_var.html">linfo</a>,
+According to <a href="http://www.linfo.org/path_env_var.html" target="_blank">linfo</a>,
 <blockquote class="blockquote"><code>PATH</code> is an environmental variable in Linux and other Unix-like operating systems that tells the shell which directories to search for executable files (i.e., ready-to-run programs) in response to commands issued by a user. It increases both the convenience and the safety of such operating systems and is widely considered to be the single most important environmental variable.</blockquote>
 
 <div class="py-4"></div>
@@ -27,7 +27,7 @@ It is a list of directories separated by \``:`\`. The shell searches for the exe
 
 {% include post-heading.html header="The usual method" %}
 
-The "standard" way of setting the `PATH`, as seen in the top search result on <a href="https://superuser.com/a/488175">superuser</a> is this:
+The "standard" way of setting the `PATH`, as seen in the top search result on <a href="https://superuser.com/a/488175" target="_blank">superuser</a> is this:
 ```shell
 $ export PATH=$PATH:/your/new/path/here
 ```
@@ -99,7 +99,7 @@ Although, a problem might arise when either `prepend_path` or `append_path` is e
 
 Solution: bash array parameter expansion
 <blockquote class="blockquote">
-<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">${parameter:+word}</a>
+<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html" target="_blank">${parameter:+word}</a>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;If parameter is null or unset, nothing is substituted, otherwise the expansion of word is substituted.
 </blockquote>
@@ -109,6 +109,6 @@ So, if either of them are empty, the corresponding \``:`\` won't be added. Cool!
 This way, you can easily add/remove directories from `PATH` and easily manage the order too.
 
 {% include post-heading.html header="" %}
-This file, along with various other config files can be found in my <a href="https://github.com/yoogottamk/dotfiles">dotfiles</a> repo.
+This file, along with various other config files can be found in my <a href="https://github.com/yoogottamk/dotfiles" target="_blank">dotfiles</a> repo.
 
 So, did you like it? Did I miss something? Did I do something in the wrong way? Please comment below and improve my knowledge!

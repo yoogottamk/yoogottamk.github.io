@@ -2,3 +2,7 @@
   - "https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap"
 /projects/:
   - "https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap"
+/about/:
+  - "https://fonts.googleapis.com/css?family=Fira+Mono&display=swap"
+  - "https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"
+

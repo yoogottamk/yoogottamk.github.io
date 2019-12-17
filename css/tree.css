@@ -1,0 +1,23 @@
+.tree-node, .tree-top {
+    position: relative;
+    padding-left: 35px;
+}
+
+.tree-node::before, .tree-top::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: -50%;
+
+    width: 30px;
+    height: 100%;
+
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.tree-top::before {
+    top: 0;
+    height: 50%;
+}

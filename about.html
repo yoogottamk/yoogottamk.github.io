@@ -3,3 +3,76 @@ layout: page
 permalink: /about/
 title: About me
 ---
+
+<link rel="stylesheet" href="{{ site.baseurl }}/css/about.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/css/tree.css">
+
+<div class="container">
+  <h1 class="heading command">whoami</h1>
+  <div class="desc">
+    <p>
+    Hello! My name is Yoogottam Khandelwal.
+    <br>
+    I grew up in Kolkata and currently am studying at IIIT Hyderabad.
+    I love programming and can be found near my laptop on any given day, learning something new in one of the 100s of tabs open on my browser.
+    </p>
+
+    <p>
+    I like programming, learning new stuff, playing badminton and table tennis, reading books and playing FPS games like
+    <a href="https://www.halowaypoint.com/en-in" target="_blank">Halo</a> and
+    <a href="https://www.callofduty.com/" target="_blank">Call of Duty</a>.
+    </p>
+
+    <p>
+    I am an introvert. I assure you, writing this page took more time than coding up rest of the website. I am trying to get over this and hope to overcome it soon.
+    </p>
+  </div>
+
+  <h1 class="heading command">cat ~/education</h1>
+  <div class="desc">
+    <h4>College</h4>
+    I am pursuing a B.Tech. in Computer Science and Engineering from <a href="https://www.iiit.ac.in" target="_blank">IIIT Hyderabad</a>. I am currently in my second year.<br><br>
+    <p>
+    CGPA: 9.7_
+    </p>
+    <p>
+    <h5>Achievements and co-curricular activities</h5>
+    <ul>
+      <li>Received the Academic Award for being in the Dean's Merit List for the year 2018-19</li>
+      <li>Qualified for ACM-ICPC 2018 regionals</li>
+      <li>Moderator of `Hacking Club`</li>
+      <li>Designer for the institute's student-run magazine, <a href="https://pingiiit.org/" target="_blank">Ping!</a></li>
+    </ul>
+    </p>
+    <hr style="border-color: inherit; width: 75%;">
+    <h4>School</h4>
+    I did my schooling (science stream) at <a href="https://bhavansgkvidyamandir.edu.in/" target="_blank">BGKV</a>, Kolkata.<br><br>
+    <p>
+    AISSCE result: 97.4% (highest in school)<br>
+    JEE Main: AIR 916<br>
+    JEE Advanced: AIR 2739
+    </p>
+  </div>
+
+  <h1 class="heading command">tree -L 1 ~/skills/</h1>
+  <div class="desc" style="font-size: 1.25rem;">
+    <h5>~/skills/</h5>
+    {% for skill in site.data.about.skills %}
+      <div class="{% if forloop.first %} tree-top {% else %} tree-node {% endif %}">
+        <i class="{{ skill.icon }}"></i>
+        {{ skill.name }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <h1 class="heading command">more ~/experience</h1>
+  <div class="desc" style="vertical-align: top;">
+    {% for experience in site.data.about.experiences %}
+      <div class="experience" data-period="{{ experience.period }}">
+        <h3>{{ experience.title }}</h3>
+        <h5>{{ experience.location }}</h5>
+        <p>{{ experience.content }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>

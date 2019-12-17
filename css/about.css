@@ -1,0 +1,90 @@
+---
+---
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Fira Mono';
+    font-weight: bold;
+    color: white;
+}
+
+.command::before {
+    content: "$ ";
+    color: green;
+}
+
+/*
+.command::after {
+    content: " ⮠";
+    color: red;
+}
+*/
+
+/*
+@keyframes fadeAnimation {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.command::after {
+    content: "";
+    height: 100%;
+
+    background-color: white;
+    border: 1px solid white;
+
+    margin-left: 10px;
+    padding-left: 15px;
+
+    animation: fadeAnimation 1s infinite;
+}
+*/
+
+.heading {
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding: 10px;
+    background-color: black;
+    overflow-wrap: break-word;
+}
+
+.desc {
+    background-color: #242628;
+    padding: 15px;
+}
+
+.experience {
+    position: relative;
+
+    padding-top: 2rem;
+    padding-left: 20px;
+    border-left: 2px solid gray;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.experience::after {
+    content: attr(data-period);
+
+    position: absolute;
+    top: 0;
+
+    display: block;
+}
+
+.experience::before {
+    content: '';
+
+    display: block;
+    width: 10px;
+    height: 10px;
+
+    position: absolute;
+    top: 0.5rem;
+    left: -5px;
+
+    border: 2px solid gray;
+    background-color: gray;
+    border-radius: 10px;
+}
