@@ -43,9 +43,9 @@ export PATH=$PATH:/here/we/go/again
 ...
 ```
 
-This is bad practice. Updating the variable to remove a directory can be messy, and what if you want to give preference to a directory for an executable? You'll have to change the order in which they are added to `PATH`. Doing it when your `PATH` updates are scattered all over the place doesn't look easy, right?
+This is bad. Updating the variable to remove a directory can be time consuming, and what if you want to give preference to a directory for an executable? You'll have to change the order in which they are added to `PATH`. Doing it when your `PATH` updates are scattered all over the place doesn't make it easy.
 
-Even if you write all the directories in a single line, it get a little overwhelming sometimes:
+Even if you write all the directories in a single line, it get a little too long to handle sometimes:
 ```shell
 export PATH=$PATH:/your/new/path/here:/another/new/path/here:/oh/and/a/second/too:/here/we/go/again:...
 ```
