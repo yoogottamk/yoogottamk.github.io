@@ -21,7 +21,7 @@ gulp.task("scripts", () => {
         .pipe(gulp.dest("."));
 });
 
-gulp.task("ghPages", () => gulp.src("./_site/**/*").pipe(ghPages()));
+gulp.task("ghPages", () => gulp.src("./_site/**/*").pipe(ghPages({ branch: "master" })));
 
 gulp.task("default", gulp.parallel("styles", "scripts"));
 gulp.task("deploy", gulp.series(gulp.parallel("styles", "scripts"), "ghPages"));
