@@ -1,0 +1,17 @@
+{
+    "name": "website",
+    "description": "My own website/blog",
+    "version": "1.0.0",
+    "author": "Yoogottam Khandelwal",
+    "browserslist": [
+        "defaults"
+    ],
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-gh-pages": "^0.5.4",
+        "gulp-terser": "^1.2.0"
+    },
+    "dependencies": {}
+}
