@@ -1,9 +1,1 @@
-.shruggie {
-    font-size: 4.5rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100%;
-}
+.shruggie{font-size:4.5rem;display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;height:100%}

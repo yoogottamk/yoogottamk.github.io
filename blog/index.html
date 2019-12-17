@@ -8,7 +8,7 @@
   <meta name="author" content="Yoogottam Khandelwal">
   <meta name="designer" content="Yoogottam Khandelwal">
 
-  <title>Home | yoogottamk</title>
+  <title>My blog | yoogottamk</title>
 
   <!-- bootstrap css -->
 
@@ -24,6 +24,10 @@
 
 <!-- fonts, included only where required to reduce load time -->
 
+  
+    
+      <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    
   
 
   
@@ -60,7 +64,7 @@
       
       
         <li class="nav-item">
-          <a class="nav-link " href="/blog/">
+          <a class="nav-link active" href="/blog/">
             <i class="fa fa-pencil-square nav-icon align-middle" aria-hidden="true"></i>
             My blog
           </a>
@@ -130,13 +134,61 @@
 </div>
 
 
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/blog.css">
 
-<div class="container shruggie">
-  ¯\_(ツ)_/¯
+<div class="container">
+  <div class="md-form my-5">
+    <i class="fa fa-search"></i>
+    <input class="form-control text-center" type="text" placeholder="Looking for something in particular?" aria-label="Search" id="searchBar">
+  </div>
+
+  <div id="not-found"></div>
+
+  <div class="row justify-content-center posts">
+    
+      <div class="card mx-2 mb-3" id="/blog/managing-path">
+        <img src="/assets/images/path.webp" class="card-img-top rounded" alt="Image for How I manage PATH">
+        <div class="card-body d-flex flex-column">
+          <h4 class="card-title">How I manage PATH</h4>
+          <p class="card-text"><p>i use arch btw. Now that we have established that, lets see what the <code class="highlighter-rouge">PATH</code> variable is and how...</p>
+          <span class="font-italic text-right">
+            
+            4 min read
+          </span>
+          <a class="stretched-link" href="/blog/managing-path"></a>
+          <hr>
+          <div class="mt-auto text-right">
+            
+              <kbd>PATH</kbd>
+            
+              <kbd>GNU/Linux</kbd>
+            
+          </div>
+        </div>
+      </div>
+    
+      <div class="card mx-2 mb-3" id="/blog/under-construction">
+        <img src="/assets/images/work-left.webp" class="card-img-top rounded" alt="Image for Under Construction">
+        <div class="card-body d-flex flex-column">
+          <h4 class="card-title">Under Construction</h4>
+          <p class="card-text"><p>I want to write many more articles. I will write more as soon as I get the time!</p>
+</p>
+          <span class="font-italic text-right">
+            
+            1 min read
+          </span>
+          <a class="stretched-link" href="/blog/under-construction"></a>
+          <hr>
+          <div class="mt-auto text-right">
+            
+          </div>
+        </div>
+      </div>
+    
+  </div>
 </div>
 
-<div class="container text-right">I didn't know else what to put here :P</div>
+<script src="/js/blog.js"></script>
 
   </div>
 
