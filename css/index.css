@@ -42,11 +42,12 @@
     color: red;
 }
 
-#prompt {
+.prompt {
     color: green;
+    margin-bottom: 0;
 }
 
-#prompt::after {
+.prompt::after {
     content: "$";
 
     padding-left: 0.5rem;
