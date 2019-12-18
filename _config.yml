@@ -4,7 +4,7 @@ title: "yoogottamk"
 email: "yoogottamk@outlook.com"
 github_username: "yoogottamk"
 timezone: "Asia/Kolkata"
-exclude: ["package*.json", "gulpfile.js"]
+exclude: ["package*.json", "gulpfile.js", "README.md", "screens"]
 
 defaults:
   -
