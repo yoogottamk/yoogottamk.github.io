@@ -132,11 +132,20 @@
 
     <link rel="stylesheet" href="/css/index.css">
 
-<div class="container shruggie">
-  ¯\_(ツ)_/¯
+<div class="container terminal-emulator">
+  <form class="form-group form-inline" id="cli-form" autocomplete="off" autofocus>
+    <label for="cli" class="prompt" id="prompt">/</label>
+    <input class="cli form-control" id="cli" type="text" placeholder="help">
+  </form>
+  <div id="terminal-error" class="terminal-error"></div>
+  <div class="terminal-output" id="terminal-output">
+    Welcome to my website!
+    You can navigate this website using links on the navbar or using this cool, slick terminal!
+    Run `help` to get started!
+  </div>
 </div>
 
-<div class="container text-right">I didn't know what else to put here :P</div>
+<script src="/js/index.js"></script>
 
   </div>
 
