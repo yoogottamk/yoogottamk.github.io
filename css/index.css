@@ -1,9 +1,55 @@
-.shruggie {
-    font-size: 4.5rem;
+---
+---
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+:root {
+    --cli-text: {{ page.darkFg }};
+}
 
+.terminal-emulator {
+    font-family: monospace;
+    font-size: 1.2rem;
+
+    color: white;
+    font-weight: bold;
+}
+
+.terminal-emulator {
     height: 100%;
+    padding: 1rem 2rem;
+
+    background-color: black;
+}
+
+.cli {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    padding: 0.5rem;
+
+    background-color: black !important;
+    color: white !important;
+
+    flex: 1;
+}
+
+.terminal-output,
+.terminal-error {
+    white-space: pre-line;
+}
+
+.terminal-error {
+    color: red;
+}
+
+#prompt {
+    color: green;
+}
+
+#prompt::after {
+    content: "$";
+
+    padding-left: 0.5rem;
+    padding-right: 0.3rem;
+    color: white;
 }
