@@ -1,7 +1,7 @@
 ---
 layout: project
 projectTitle: ysh
-projectImage: ysh.png
+projectImage: ysh.webp
 tags:
  - shell
  - c

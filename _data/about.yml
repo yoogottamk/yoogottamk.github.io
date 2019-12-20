@@ -48,13 +48,13 @@ skills:
 experiences:
   - title: Student Sysadmin
     location: IIIT Hyderabad
-    content: "#TODO: add desc"
+    content: "Responsible for maintaining college servers and various services"
     period: "August 2019 - present"
   - title: Tech Team
     location: E-Cell, IIIT Hyderabad
     period: "August 2018 - present"
-    content: "#TODO: add desc"
+    content: "Building websites using React, jekyll, jQuery, bootstrap andmanaging servers and conducting various events including one of India's largest student-run hackathon (Megathon)."
   - title: Student Mentor
     location: IIIT Hyderabad
     period: "August 2019"
-    content: "#TODO: add desc"
+    content: "Responsible for ensuring a comfortable transition into collegelife for the freshers by organizing a 2-week long induction programme"
