@@ -6,6 +6,19 @@
   <meta name="author" content="Yoogottam Khandelwal">
   <meta name="designer" content="Yoogottam Khandelwal">
 
+  {% if page.layout == "post" %}
+    <meta property="og:title" content="{{ page.blogTitle }}">
+    <meta property="og:image" content="{{ page.blogImage }}">
+    <meta property="og:description" content="{{ page.content | strip_html | strip_newlines | truncatewords: 30 }}">
+  {% endif %}
+  {% if page.layout == "project" %}
+    <meta property="og:title" content="{{ page.projectTitle }}">
+    <meta property="og:image" content="{{ page.projectImage }}">
+    <meta property="og:description" content="{{ page.content | strip_html | strip_newlines | truncatewords: 30 }}">
+  {% endif %}
+
+  <meta property="og:url" content="{{ page.url | relative_url }}">
+
   <title>{{ page.title }} | yoogottamk</title>
 
   {% include libraries.html %}
