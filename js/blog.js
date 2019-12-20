@@ -11,7 +11,7 @@ const allBlogs = [
         {% endfor %}
         ],
         "title": "{{ blog.blogTitle | strip_newlines | escape }}",
-        "content": "{{ blog.content | strip_newlines | escape }}"
+        "content": "{{ blog.content | strip_html | strip_newlines | escape }}"
     },
 {% endfor %}
 ];

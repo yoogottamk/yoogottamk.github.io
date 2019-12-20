@@ -17,7 +17,7 @@ gulp.task("styles", () => {
 gulp.task("scripts", () => {
     return gulp
         .src("./_site/js/*.js", { base: "./" })
-        .pipe(terser())
+        .pipe(terser({ toplevel: true }))
         .pipe(gulp.dest("."));
 });
 

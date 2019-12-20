@@ -11,7 +11,7 @@ const allProjects = [
         {% endfor %}
         ],
         "title": "{{ project.projectTitle | strip_newlines | escape }}",
-        "content": "{{ project.content | strip_newlines | escape }}"
+        "content": "{{ project.content | strip_html | strip_newlines | escape }}"
     },
 {% endfor %}
 ];
