@@ -40,7 +40,7 @@ title: About me
     <ul>
       <li>Received the Academic Award for being in the Dean's Merit List for the year 2018-19</li>
       <li>Qualified for ACM-ICPC 2018 regionals</li>
-      <li>Second place for the PwC problem statement, Megathon 2019</li>
+      <li>Came second in <a href="https://megathon.in/" rel="noopener" target="_blank">Megathon'19</a> for the PwC problem statement</li>
       <li>Moderator of `Hacking Club`</li>
       <li>Designer for the institute's student-run magazine, <a href="https://pingiiit.org/" target="_blank" rel="noopener">Ping!</a></li>
     </ul>
@@ -67,7 +67,7 @@ title: About me
   </div>
 
   <h1 class="heading command">more ~/experience</h1>
-  <div class="desc" style="vertical-align: top;">
+  <div class="desc">
     {% for experience in site.data.about.experiences %}
       <div class="experience" data-period="{{ experience.period }}">
         <h3>{{ experience.title }}</h3>
@@ -75,5 +75,10 @@ title: About me
         <p>{{ experience.content }}</p>
       </div>
     {% endfor %}
+  </div>
+
+  <h1 class="heading command">wget ~/resume</h1>
+  <div class="desc">
+    <a href="{{ 'assets/resume-yoogottamk.pdf' | relative_url }}" target="_blank">My resume</a>
   </div>
 </div>
