@@ -1,7 +1,7 @@
 ---
 layout: project
 projectTitle: website
-projectImage: notfound.png
+projectImage: notfound.webp
 tags:
  - jekyll
  - html
