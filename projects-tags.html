@@ -1,0 +1,21 @@
+---
+layout: page
+permalink: /projects/tags.html
+title: Projects tags
+---
+
+<div class="container">
+  {% assign tags =  site.projects | map: 'tags' | uniq | sort %}
+  
+  {% for tag in tags %}
+    <h2 id="{{ tag }}">{{ tag }}</h2>
+    <ul>
+      {% for project in site.projects %}
+        {% if project.tags contains tag %}
+          <li><a href="{{ project.url | relative_url }}">{{ project.projectTitle }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
+  {% endfor %}
+</div>

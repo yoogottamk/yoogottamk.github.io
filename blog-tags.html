@@ -1,0 +1,25 @@
+---
+layout: page
+permalink: /blog/tags.html
+title: Blog tags
+---
+
+<div class="container">
+  {% capture unsortedTags %}
+    {% for tag in site.tags %}
+      {{ tag[0] }}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign tags = unsortedTags | split: ' ' | sort %}
+  
+  {% for tag in tags %}
+    <h2 id="{{ tag }}">{{ tag }}</h2>
+    <ul>
+      {% for post in site.tags[tag] %}
+        <li>{{ post.date | date: '%B %d, %Y' }}: <a href="{{ post.url | relative_url }}">{{ post.blogTitle }}</a></li>
+      {% endfor %}
+    </ul>
+    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
+  {% endfor %}
+</div>

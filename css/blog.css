@@ -60,6 +60,22 @@
     font-size: 1.5rem;
 }
 
+.tags-container {
+    text-align: right;
+    padding: 15px;
+}
+
+.tag-link:hover {
+    text-decoration: none;
+}
+
+.tag-link:hover kbd {
+    background-color: white;
+
+    color: black;
+    font-weight: bold;
+}
+
 @media (max-width: 600px) {
     .md-form input {
         width: 85%;
