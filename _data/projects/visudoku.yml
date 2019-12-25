@@ -1,0 +1,8 @@
+images:
+ - "visudoku/Original.webp"
+ - "visudoku/Preprocessed.webp"
+ - "visudoku/GettingTheBoundary.webp"
+ - "visudoku/ExtractingThePuzzle.webp"
+ - "visudoku/GettingTheDigits.webp"
+ - "visudoku/DigitRecognition.webp"
+ - "visudoku/Final.webp"

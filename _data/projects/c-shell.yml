@@ -1,0 +1,39 @@
+builtins:
+ - name: cd
+   desc: (supports absolute / relative paths)
+ - name: pwd
+   desc:
+ - name: echo
+   desc:
+ - name: history
+   desc: (stored last 20 commands, accessible with the up arrow)
+ - name: exit
+   desc:
+ - name: pinfo
+   desc: (gives detailed info about any process given it's pid)
+ - name: ls
+   desc: (yes, it was implemented again, supported '-a' and '-l' flags)
+ - name: "{un}setenv"
+   desc: (allowed removal and creation of environment variables)
+ - name: jobs
+   desc: "(like <kbd>ps</kbd>)"
+ - name: kjob
+   desc: (sends a signal to a process)
+ - name: "fg / bg"
+   desc: (moves a process to foreground or background)
+ - name: "overkill"
+   desc: (stops all background processes)
+ - name: ...
+   desc: (and some more)
+images:
+ - "ysh.webp"
+features:
+ - "semicolon(;) seperated list of commands can be passed, whitespace is ignored"
+ - "Execution of system commands with or without arguments, in background or foreground"
+ - "Notifying when and how the background process terminated"
+ - "Input and output redirection, including appending to a file"
+ - "Piping of commands"
+ - "Handling <kbd>SIGINT</kbd> [C-c] and <kbd>SIGTSTP</kbd> [C-z] signals"
+ - "Command recall using up arrow key"
+ - "echo supports printing environment variables"
+ - 'Spaces are escaped within quotes. i.e., vim "bad name.txt" will work as expected'
