@@ -70,9 +70,9 @@
 }
 
 .tag-link:hover kbd {
-    background-color: white;
+    background-color: #eee;
 
-    color: black;
+    color: #111;
     font-weight: bold;
 }
 

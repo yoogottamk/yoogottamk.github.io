@@ -31,7 +31,7 @@ Any external command was executed using the `exec` syscall
 {% include post-heading.html header="Image(s)" %}
 <div id="displayImages" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-  {% for img in site.data.c-shell["images"] %}
+  {% for img in site.data.projects.c-shell["images"] %}
     <div class="carousel-item {% if forloop.first %} active {% endif %}">
       <img class="d-block mx-auto" src="{{ '/assets/images/' | append: img | relative_url }}" alt="" height="600px">
     </div>

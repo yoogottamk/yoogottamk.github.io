@@ -34,9 +34,7 @@ function init() {
             screenWidth = $(window).width();
 
         if(willCross(elemPos.left, elemWidth, screenWidth)) {
-            $activeDesc.css({ "transform": `translateX(
-                -${elemPos.left + elemWidth - screenWidth}px
-            )`});
+            $activeDesc.css({ "transform": `translateX(-${elemPos.left + elemWidth - screenWidth}px`});
         }
     });
 }

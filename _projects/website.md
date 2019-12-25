@@ -1,7 +1,7 @@
 ---
 layout: project
 projectTitle: website
-projectImage: notfound.webp
+projectImage: projects/website/notfound.webp
 tags:
  - jekyll
  - html
@@ -25,9 +25,9 @@ This website (+blog) was built using <a href="https://jekyllrb.com/" rel="noopen
 {% include post-heading.html header="Image(s)" %}
 <div id="displayImages" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-  {% for img in site.data.website["images"] %}
+  {% for img in site.data.projects.website["images"] %}
     <div class="carousel-item {% if forloop.first %} active {% endif %}">
-      <img class="d-block mx-auto" src="{{ '/assets/images/' | append: img | relative_url }}" alt="" height="600px">
+      <img class="d-block mx-auto" src="{{ '/assets/images/projects/' | append: img | relative_url }}" alt="" height="600px">
     </div>
   {% endfor %}
   </div>
