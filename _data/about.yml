@@ -50,10 +50,18 @@ experiences:
     location: IIIT Hyderabad
     content: "Responsible for maintaining college servers and various services"
     period: "August 2019 - present"
+  - title: Moderator
+    location: Hacking Club, IIIT Hyderabad
+    content: "Moderator of the hacking club of our institute"
+    period: "August 2019 - present"
   - title: Tech Team
     location: E-Cell, IIIT Hyderabad
     period: "August 2018 - present"
     content: "Building websites using React, jekyll, jQuery, bootstrap and managing servers and conducting various events including one of India's largest student-run hackathon (Megathon)."
+  - title: Designer
+    location: Ping!
+    period: "April 2019 - present"
+    content: "Ping! is an independent magazine of the students of IIIT Hyderabad."
   - title: Student Mentor
     location: IIIT Hyderabad
     period: "August 2019"
