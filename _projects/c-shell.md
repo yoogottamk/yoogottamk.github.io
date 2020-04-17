@@ -15,7 +15,7 @@ This is a shell completely written in C which supports background / foreground j
 
 <h4>The following shell builtins were implemented:</h4>
 <ul>
-  {% for builtin in site.data.c-shell["builtins"] %}
+  {% for builtin in site.data.projects.c-shell["builtins"] %}
     <li><kbd>{{ builtin.name }}</kbd> {{ builtin.desc }}</li>
   {% endfor %}
 </ul>
@@ -23,7 +23,7 @@ Any external command was executed using the `exec` syscall
 
 <h4>The following features were implemented:</h4>
 <ul>
-  {% for feature in site.data.c-shell["features"] %}
+  {% for feature in site.data.projects.c-shell["features"] %}
     <li>{{ feature }}</li>
   {% endfor %}
 </ul>
