@@ -164,11 +164,55 @@
 <h4>The following shell builtins were implemented:</h4>
 <ul>
   
+    <li><kbd>cd</kbd> (supports absolute / relative paths)</li>
+  
+    <li><kbd>pwd</kbd> </li>
+  
+    <li><kbd>echo</kbd> </li>
+  
+    <li><kbd>history</kbd> (stored last 20 commands, accessible with the up arrow)</li>
+  
+    <li><kbd>exit</kbd> </li>
+  
+    <li><kbd>pinfo</kbd> (gives detailed info about any process given it's pid)</li>
+  
+    <li><kbd>ls</kbd> (yes, it was implemented again, supported '-a' and '-l' flags)</li>
+  
+    <li><kbd>{un}setenv</kbd> (allowed removal and creation of environment variables)</li>
+  
+    <li><kbd>jobs</kbd> (like <kbd>ps</kbd>)</li>
+  
+    <li><kbd>kjob</kbd> (sends a signal to a process)</li>
+  
+    <li><kbd>fg / bg</kbd> (moves a process to foreground or background)</li>
+  
+    <li><kbd>overkill</kbd> (stops all background processes)</li>
+  
+    <li><kbd>...</kbd> (and some more)</li>
+  
 </ul>
 <p>Any external command was executed using the <code class="highlighter-rouge">exec</code> syscall</p>
 
 <h4>The following features were implemented:</h4>
 <ul>
+  
+    <li>semicolon(;) seperated list of commands can be passed, whitespace is ignored</li>
+  
+    <li>Execution of system commands with or without arguments, in background or foreground</li>
+  
+    <li>Notifying when and how the background process terminated</li>
+  
+    <li>Input and output redirection, including appending to a file</li>
+  
+    <li>Piping of commands</li>
+  
+    <li>Handling <kbd>SIGINT</kbd> [C-c] and <kbd>SIGTSTP</kbd> [C-z] signals</li>
+  
+    <li>Command recall using up arrow key</li>
+  
+    <li>echo supports printing environment variables</li>
+  
+    <li>Spaces are escaped within quotes. i.e., vim "bad name.txt" will work as expected</li>
   
 </ul>
 
