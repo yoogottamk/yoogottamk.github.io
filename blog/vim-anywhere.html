@@ -167,7 +167,7 @@
 
 <h1 class="section-header">How</h1>
 
-<p>What would you do if you wanted to edit something you are typing in vim?</p>
+<p>What would you do if you wanted shift what you were typing to vim?</p>
 
 <p>This is what comes to mind:</p>
 <ol>
@@ -242,6 +242,8 @@ xdotool key ctrl+v
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bindsym $mod+q exec vimedit
 for_window [class="UXTerm"] floating enable
 </code></pre></div></div>
+
+<p>This made the script available to me with <code class="highlighter-rouge">super+q</code>. I don’t have to specify the whole path to the file since I update <code class="highlighter-rouge">PATH</code> before loading i3.</p>
 
 <div class="text-center py-4">· · ·</div>
 
