@@ -17,7 +17,7 @@ This _should_ work if you are using X11.
 
 {% include post-heading.html header="How" %}
 
-What would you do if you wanted to edit something you are typing in vim?
+What would you do if you wanted shift what you were typing to vim?
 
 This is what comes to mind:
 1. Copy the text
@@ -86,6 +86,8 @@ Here's what I did (i3conf):
 bindsym $mod+q exec vimedit
 for_window [class="UXTerm"] floating enable
 ```
+
+This made the script available to me with `super+q`. I don't have to specify the whole path to the file since I update `PATH` before loading i3.
 
 {% include post-heading.html header="" %}
 This, along with various other cool stuff can be found in my <a href="https://github.com/yoogottamk/dotfiles" target="_blank" rel="noopener">dotfiles</a> repo.
