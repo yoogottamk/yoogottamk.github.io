@@ -9,15 +9,15 @@
   <meta name="designer" content="Yoogottam Khandelwal">
 
   
-    <meta property="og:title" content="Under Construction">
-    <meta property="og:image" content="work-left.webp">
-    <meta property="og:description" content="I want to write many more articles. I will write more as soon as I get the time!Thank you for your patience!">
+    <meta property="og:title" content="Editing in vim from anywhere(*)">
+    <meta property="og:image" content="edit-vim.webp">
+    <meta property="og:description" content="I love vim. Once you start using it (properly), you want it everywhere. The modal editing is……wait, I don’t need to sell vim to you, you came here because you...">
   
   
 
-  <meta property="og:url" content="/blog/under-construction">
+  <meta property="og:url" content="/blog/vim-anywhere">
 
-  <title>Under Construction | yoogottamk</title>
+  <title>Vim Anywhere | yoogottamk</title>
 
   <!-- bootstrap css -->
 
@@ -148,34 +148,146 @@
 <link rel="stylesheet" href="/css/syntax.css">
 
 <div class="jumbotron jumbotron-fluid"
-   style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/assets/images/posts/work-left.webp);">
+   style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/assets/images/posts/edit-vim.webp);">
   <div class="container">
-    <h1>Under Construction</h1>
-    December 01, 2019
+    <h1>Editing in vim from anywhere(*)</h1>
+    May 22, 2020
   </div>
 </div>
 
 <div class="container" id="post-body">
-  <p>I want to write many more articles. I will write more as soon as I get the time!</p>
+  <p>I love vim. Once you start using it (properly), you want it everywhere. The modal editing is…</p>
 
-<p>Thank you for your patience!</p>
+<p>…wait, I don’t need to sell vim to you, you came here because you already know how great it is!</p>
+
+<h2 class="section-header pt-4">(*)</h2>
+<p>This <em>should</em> work if you are using X11.</p>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header">How</h1>
+
+<p>What would you do if you wanted to edit something you are typing in vim?</p>
+
+<p>This is what comes to mind:</p>
+<ol>
+  <li>Copy the text</li>
+  <li>Open vim and paste it there</li>
+  <li>Edit</li>
+  <li>Copy it to the system clipboard</li>
+  <li>Paste</li>
+</ol>
+
+<p>Hmmm. Only if I could automate this…</p>
+
+<h2 class="section-header pt-4">Enter xdotool</h2>
+<blockquote class="blockquote">
+<a href="https://www.semicomplete.com/projects/xdotool/" target="_blank" rel="noopener">What is xdotool?</a><br />
+This tool lets you simulate keyboard input and mouse activity, move and resize windows, etc. It does this using X11’s XTEST extension and other Xlib functions.
+<br />
+</blockquote>
+
+<h2 class="section-header pt-4">Requirements</h2>
+<ul>
+  <li>xdotool: for simulating copy/paste actions</li>
+  <li>xclip: for getting/setting clipboard content</li>
+</ul>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header">Code</h1>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># you can set this to the one you use</span>
+<span class="nv">TERMINAL</span><span class="o">=</span>uxterm
+
+<span class="nv">file</span><span class="o">=</span><span class="sb">`</span><span class="nb">mktemp</span><span class="sb">`</span>
+
+<span class="c"># a small delay is usually required when dealing with xdotool</span>
+<span class="nb">sleep </span>0.5s
+
+<span class="c"># copy whatever was selected</span>
+xdotool key ctrl+c
+
+<span class="c"># put clipboard contents inside a file</span>
+xclip <span class="nt">-selection</span> clipboard <span class="nt">-o</span> <span class="o">&gt;</span> <span class="nv">$file</span>
+<span class="c"># open preferred text editor (vim!)</span>
+<span class="s2">"</span><span class="nv">$TERMINAL</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$EDITOR</span><span class="s2"> </span><span class="nv">$file</span><span class="s2">"</span>
+<span class="c"># when done with editing, copy contents to clipboard</span>
+xclip <span class="nt">-selection</span> clipboard <span class="nt">-i</span> &lt; <span class="nv">$file</span>
+
+<span class="nb">sleep </span>0.1s
+
+<span class="c"># replace the selection which was just copied</span>
+xdotool key ctrl+v
+
+<span class="nb">rm</span> <span class="nv">$file</span>
+</code></pre></div></div>
+
+<h2 class="section-header pt-4">How to use</h2>
+<ol>
+  <li>Save this file somewhere and make sure it can be executed (<code class="highlighter-rouge">chmod +x</code>)</li>
+  <li>If not already present, <a href="https://yoogottamk.github.io/blog/managing-path" target="_blank" rel="noopener">add the directory to <code class="highlighter-rouge">PATH</code></a> (not exactly a necessity but now it’s easier to run it manually too)</li>
+  <li>Make this accessible by a keyboard shortcut.</li>
+  <li>Enjoy</li>
+</ol>
+
+<p>Now, whenever I want to edit something in vim, I select the desired portion and press the hotkey and voila, my text is in vim! Edit, save and close, and the original text gets replaced by this!</p>
+
+<h2 class="section-header pt-4">i3 users</h2>
+<p>A bindsym will do the job. You might want to use a terminal which you don’t use regularly and make it a floating window.</p>
+
+<p>Here’s what I did (i3conf):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bindsym $mod+q exec vimedit
+for_window [class="UXTerm"] floating enable
+</code></pre></div></div>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header"></h1>
+
+<p>This, along with various other cool stuff can be found in my <a href="https://github.com/yoogottamk/dotfiles" target="_blank" rel="noopener">dotfiles</a> repo.</p>
+
+<p>So, did you like it? Did I miss something? Did I do something in the wrong way? Please comment below and improve my knowledge!</p>
 
 
   <div class="suggested row">
     
-      <div class="col-md-offset-4"></div>
-    
-
-    
     <div class="col-md-4 col-sm-12"
       style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/assets/images/posts/path.webp);">
       <a class="prev stretched-link" href="/blog/managing-path"></a>
-      <span class="post-title">How I manage PATH &raquo;</span>
+      <span class="post-title">&laquo; How I manage PATH</span>
     </div>
+    
+
     
   </div>
 
   
+<div id="disqus_thread"></div>
+<script>
+  /**
+   *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+   */
+
+  /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+   */
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yoogottamk.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 </div>
 
@@ -203,13 +315,6 @@
 
   <div class="container credits w-100 text-right">
     
-      <hr>
-      Pictures from
-    
-    
-      <ul class="list-unstyled">
-        <li><a href="https://undraw.co/" target="_blank" rel="noopener">undraw</a></li>
-      </ul>
     
   </div>
 </footer>
