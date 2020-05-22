@@ -4,7 +4,7 @@ blogTitle: Editing in vim from anywhere(*)
 blogImage: edit-vim.webp
 tags:
  - vim
- - GNU/Linux
+ - automation
  - X11
 ---
 
