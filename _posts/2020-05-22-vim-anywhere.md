@@ -1,6 +1,6 @@
 ---
 layout: post
-blogTitle: Editing in vim from anywhere(*)
+blogTitle: Editing in vim from anywhere*
 blogImage: edit-vim.webp
 tags:
  - vim
@@ -73,7 +73,7 @@ rm $file
 <h2 class="section-header pt-4">How to use</h2>
 1. Save this file somewhere and make sure it can be executed (`chmod +x`)
 2. If not already present, <a href="https://yoogottamk.github.io/blog/managing-path" target="_blank" rel="noopener">add the directory to `PATH`</a> (not exactly a necessity but now it's easier to run it manually too)
-3. Make this accessible by a keyboard shortcut.
+3. Make this accessible by a keyboard shortcut. (e.g. <a href="https://askubuntu.com/a/525495" target="_blank" rel="noopener">for ubuntu</a>)
 4. Enjoy
 
 Now, whenever I want to edit something in vim, I select the desired portion and press the hotkey and voila, my text is in vim! Edit, save and close, and the original text gets replaced by this!
