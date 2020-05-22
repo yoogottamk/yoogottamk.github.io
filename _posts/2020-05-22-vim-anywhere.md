@@ -89,6 +89,14 @@ for_window [class="UXTerm"] floating enable
 
 This made the script available to me with `super+q`. I don't have to specify the whole path to the file since I update `PATH` before loading i3.
 
+{% include post-heading.html header="Demo" %}
+<div align="center" class="embed-responsive embed-responsive-16by9">
+  <video controls class="embed-responsive-item">
+    <source src="{{ '/assets/videos/posts/vim-edit.mp4' | relative_url }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video> 
+</div>
+
 {% include post-heading.html header="" %}
 This, along with various other cool stuff can be found in my <a href="https://github.com/yoogottamk/dotfiles" target="_blank" rel="noopener">dotfiles</a> repo.
 
