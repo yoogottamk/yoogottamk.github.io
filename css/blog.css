@@ -76,6 +76,10 @@
     font-weight: bold;
 }
 
+h4.card-title {
+    font-family: "Oswald";
+}
+
 @media (max-width: 600px) {
     .md-form input {
         width: 85%;
