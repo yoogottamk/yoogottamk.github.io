@@ -52,7 +52,7 @@ Here is a basic outline of how this algorithm works
   <video controls class="embed-responsive-item">
     <source src="{{ '/assets/videos/projects/visudoku.mp4' | relative_url }}" type="video/mp4">
     Your browser does not support the video tag.
-  </video> 
+  </video>
 </div>
 
 {% include post-heading.html header="Code" %}

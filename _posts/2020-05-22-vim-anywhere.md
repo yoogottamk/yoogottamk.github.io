@@ -94,7 +94,7 @@ This made the script available to me with `super+q`. I don't have to specify the
   <video controls class="embed-responsive-item">
     <source src="{{ '/assets/videos/posts/vim-edit.mp4' | relative_url }}" type="video/mp4">
     Your browser does not support the video tag.
-  </video> 
+  </video>
 </div>
 
 {% include post-heading.html header="" %}
