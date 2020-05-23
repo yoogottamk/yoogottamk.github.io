@@ -8,12 +8,12 @@
 
   {% if page.layout == "post" %}
     <meta property="og:title" content="{{ page.blogTitle }}">
-    <meta property="og:image" content="{{ page.blogImage | prepend: 'assets/images/posts/' }}">
+    <meta property="og:image" content="{{ page.blogImage | prepend: 'assets/images/posts/' | prepend: site.url }}">
     <meta property="og:description" content="{{ page.content | strip_html | strip_newlines | truncatewords: 30 }}">
   {% endif %}
   {% if page.layout == "project" %}
     <meta property="og:title" content="{{ page.projectTitle }}">
-    <meta property="og:image" content="{{ page.projectImage | prepend: 'assets/images/projects/' }}">
+    <meta property="og:image" content="{{ page.projectImage | prepend: 'assets/images/projects/ | prepend: site.url' }}">
     <meta property="og:description" content="{{ page.content | strip_html | strip_newlines | truncatewords: 30 }}">
   {% endif %}
 
