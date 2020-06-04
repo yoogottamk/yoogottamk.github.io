@@ -4,5 +4,5 @@
   - "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap"
 /about/:
   - "https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
-  - "https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"
+  - "https://unpkg.com/@coreui/icons/css/brand.min.css"
 

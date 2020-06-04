@@ -1,51 +1,61 @@
 skills:
   - name: python
-    icon: devicon-python-plain
+    icon: cib-python
   - name: bash scripting
-    icon: fa fa-terminal
-  - name: c
-    icon: devicon-c-plain
-  - name: c++
-    icon: devicon-cplusplus-plain
-  - name: javascript
-    icon: devicon-javascript-plain
-  - name: java
-    icon: devicon-java-plain
-  - name: php
-    icon: devicon-php-plain
-  - name: android
-    icon: devicon-android-plain
-  - name: nodejs
-    icon: devicon-nodejs-plain
-  - name: react
-    icon: devicon-react-original
-  - name: git
-    icon: devicon-git-plain
-  - name: html
-    icon: devicon-html5-plain
-  - name: css
-    icon: devicon-css3-plain
-  - name: bootstrap
-    icon: devicon-bootstrap-plain
-  - name: jquery
-    icon: devicon-jquery-plain
-  - name: gulp
-    icon: devicon-gulp-plain
-  - name: mysql
-    icon: devicon-mysql-plain
-  - name: nginx
-    icon: devicon-nginx-original
-  - name: vim
-    icon: devicon-vim-plain
+    icon: 
   - name: linux
-    icon: devicon-linux-plain
+    icon: cib-arch-linux
+  - name: docker
+    icon: cib-docker
+  - name: kubernetes
+    icon: cib-kubernetes
+  - name: helm
+    icon: cib-helm
+  - name: nginx
+    icon: cib-nginx
+  - name: mysql
+    icon: cib-mysql
+  - name: c
+    icon: cib-c
+  - name: c++
+    icon: cib-cplusplus
+  - name: javascript
+    icon: cib-javascript
+  - name: vim
+    icon: cib-vim
+  - name: java
+    icon: cib-java
+  - name: php
+    icon: cib-php
+  - name: android
+    icon: cib-android-alt
+  - name: nodejs
+    icon: cib-node-js
+  - name: react
+    icon: cib-react
+  - name: git
+    icon: cib-git
+  - name: html
+    icon: cib-html5
+  - name: css
+    icon: cib-css3
+  - name: bootstrap
+    icon: cib-bootstrap
+  - name: jquery
+    icon: cib-jquery
+  - name: gulp
+    icon: cib-gulp
   - name: Adobe Photoshop
-    icon: devicon-photoshop-plain
+    icon: cib-adobe-photoshop
   - name: Adobe Illustrator
-    icon: devicon-illustrator-plain
+    icon: cib-adobe-illustrator
   - name: ...and many more
     icon: 
 experiences:
+  - title: Site Reliability Engineer
+    location: AIcrowd
+    content: ""
+    period: "March 2020 - present"
   - title: Student Sysadmin
     location: IIIT Hyderabad
     content: "Responsible for maintaining college servers and various services"
