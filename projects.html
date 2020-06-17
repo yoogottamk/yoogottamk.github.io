@@ -22,7 +22,7 @@ title: My projects
           <img src="{{ '/assets/images/' | append: project.projectImage | relative_url }}" class="card-img-top rounded" alt="Image for {{ project.projectTitle }}">
           <div class="card-body d-flex flex-column">
             <h4 class="card-title">{{ project.projectTitle }}</h4>
-            <p class="card-text">{{ project.excerpt | truncatewords: 20 }}</p>
+            <p class="card-text">{{ project.excerpt | truncatewords: 25 }}</p>
             <a class="stretched-link" href="{{ project.url | relative_url }}"></a>
           </div>
         </div>

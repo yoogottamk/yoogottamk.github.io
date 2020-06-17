@@ -11,7 +11,7 @@ tags:
 date: 2019-12-25
 ---
 
-This is a python (jupyter notebook) script which uses <a href="https://opencv.org/" target="_blank" rel="noopener">OpenCV</a> for extracting the sudoku puzzle, <a href="https://scikit-learn.org/" target="_blank" rel="noopener">scikit-learn</a> for digit recognition and a <a href="https://github.com/YoogottamK/sudoku-solver" target="_blank" rel="noopener">backtracking algo</a> to solve the puzzle.
+Takes an image of a sudoku puzzle as input and solves it. Uses <a href="https://opencv.org/" target="_blank" rel="noopener">OpenCV</a> and <a href="https://scikit-learn.org/" target="_blank" rel="noopener">scikit-learn</a>.
 
 <div class="py-4"></div>
 {% include post-heading.html header="Overview" nodots="true" %}

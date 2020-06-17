@@ -11,7 +11,7 @@ tags:
 date: 2019-12-21
 ---
 
-This website (+blog) was built using <a href="https://jekyllrb.com/" rel="noopener" target="_blank">jekyll</a>. The theme was created from scratch. I also used <a href="https://getbootstrap.com/" rel="noopener" target="_blank">bootstrap</a>. I tried to follow best practices everywhere and ended up using almost all of jekyll's features.
+Built using <a href="https://jekyllrb.com/" rel="noopener" target="_blank">jekyll</a>, along with a home-baked theme.
 
 <div class="py-4"></div>
 {% include post-heading.html header="Highlights" nodots="true" %}

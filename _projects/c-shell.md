@@ -8,7 +8,7 @@ tags:
 date: 2019-12-08
 ---
 
-This is a shell completely written in C which supports background / foreground jobs, semicolon list of commands, input / output redirection, piping, escaping within quotes(both double and single) and handles some signals like SIGINT(\<C-c\>) and SIGTSTP(\<C-z\>).
+A shell completely written in C. Supports bg/fg jobs, '`;`' separated list of commands, io redirection, pipes, escaping quotes and more.
 
 <div class="py-4"></div>
 {% include post-heading.html header="Features" nodots="true" %}
