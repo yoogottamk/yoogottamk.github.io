@@ -16,6 +16,10 @@
     <meta property="og:image" content="{{ page.projectImage | prepend: '/assets/images/projects/' | prepend: site.url }}">
     <meta property="og:description" content="{{ page.content | strip_html | strip_newlines | truncatewords: 30 }}">
   {% endif %}
+  {% if page.layout == "project" %}
+    <meta property="og:title" content="{{ page.snippetTitle }}">
+    <meta property="og:description" content="Useful code snippets">
+  {% endif %}
 
   <meta property="og:url" content="{{ site.url | append: page.url }}">
 
@@ -24,5 +28,6 @@
   {% include libraries.html %}
 
   <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/css/copy-code.css' | relative_url }}">
   <link rel="shortcut icon" href="{{ '/assets/images/yoogottamk.webp' | relative_url }}" type="image/x-icon" />
 </head>

@@ -44,3 +44,7 @@ collections:
     output: true
     layout: "project"
     permalink: /projects/:title
+  snippets:
+    output: true
+    layout: "snippet"
+    permalink: /snippets/:title
