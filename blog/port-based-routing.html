@@ -9,12 +9,16 @@
   <meta name="designer" content="Yoogottam Khandelwal">
 
   
+    <meta property="og:title" content="Port based routing">
+    <meta property="og:image" content="http://localhost:4000/assets/images/posts/path.webp">
+    <meta property="og:description" content="Recently, my ISP started blocking outbound ssh connections[*] and that hindered my workflow a lot. The only other internet connection I had was my mobile phone’s wireless hotspot (limited data)....">
+  
   
   
 
-  <meta property="og:url" content="http://localhost:4000/blog/tags.html">
+  <meta property="og:url" content="http://localhost:4000/blog/port-based-routing">
 
-  <title>Blog tags | yoogottamk</title>
+  <title>Port Based Routing | yoogottamk</title>
 
   <!-- bootstrap css -->
 
@@ -142,86 +146,66 @@
 </div>
 
 
-    <div class="container">
-  
+    <link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="/css/syntax.css">
+
+<div class="jumbotron jumbotron-fluid"
+   style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/assets/images/posts/path.webp);">
+  <div class="container">
+    <h1>Port based routing</h1>
+    February 16, 2021
+  </div>
+</div>
+
+<div class="container" id="post-body">
+  <p>Recently, my ISP started blocking outbound ssh connections[*] and that hindered my workflow a lot. The only other internet connection I had was my mobile phone’s wireless hotspot (limited data). Somehow, I needed to send just the ssh packets through my wireless interface.</p>
+
+<h2 class="section-header pt-4">(*)</h2>
+<p>actually, they only blocked port 22 and not ssh packets</p>
+
+<div class="py-4"></div>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header">The usual method</h1>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header"></h1>
+
+<p>This script, along with various other scripts config files can be found in my <a href="https://github.com/yoogottamk/dotfiles" target="_blank" rel="noopener">dotfiles</a> repo.</p>
+
+
+  <div class="suggested row">
+    
+    <div class="col-md-4 col-sm-12"
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/assets/images/posts/edit-vim.webp);">
+      <a class="prev stretched-link" href="/blog/padding-oracle"></a>
+      <span class="post-title">&laquo; Padding Oracle Attack</span>
+    </div>
+    
+
+    
+  </div>
 
   
-  
-  
-    <h2 id="GNU/Linux">GNU/Linux</h2>
-    <ul>
-      
-        <li>February 16, 2021: <a href="/blog/port-based-routing">Port based routing</a></li>
-      
-        <li>December 08, 2019: <a href="/blog/managing-path">How I manage PATH</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="PATH">PATH</h2>
-    <ul>
-      
-        <li>December 08, 2019: <a href="/blog/managing-path">How I manage PATH</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="X11">X11</h2>
-    <ul>
-      
-        <li>May 22, 2020: <a href="/blog/vim-anywhere">Editing in vim from anywhere*</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="automation">automation</h2>
-    <ul>
-      
-        <li>May 22, 2020: <a href="/blog/vim-anywhere">Editing in vim from anywhere*</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="crypto">crypto</h2>
-    <ul>
-      
-        <li>November 26, 2020: <a href="/blog/padding-oracle">Padding Oracle Attack</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="ctf">ctf</h2>
-    <ul>
-      
-        <li>November 26, 2020: <a href="/blog/padding-oracle">Padding Oracle Attack</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="iptables">iptables</h2>
-    <ul>
-      
-        <li>February 16, 2021: <a href="/blog/port-based-routing">Port based routing</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="padding-oracle">padding-oracle</h2>
-    <ul>
-      
-        <li>November 26, 2020: <a href="/blog/padding-oracle">Padding Oracle Attack</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="vim">vim</h2>
-    <ul>
-      
-        <li>May 22, 2020: <a href="/blog/vim-anywhere">Editing in vim from anywhere*</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "http://localhost:4000/blog/port-based-routing";
+    this.page.identifier = "/blog/port-based-routing";
+  };
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yoogottamk.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
 </div>
 
   </div>
@@ -248,6 +232,13 @@
 
   <div class="container credits w-100 text-right">
     
+      <hr>
+      Pictures from
+    
+    
+      <ul class="list-unstyled">
+        <li><a href="https://unsplash.com/" target="_blank" rel="noopener">unsplash</a></li>
+      </ul>
     
   </div>
 </footer>

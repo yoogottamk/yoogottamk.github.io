@@ -12,9 +12,9 @@
   
   
 
-  <meta property="og:url" content="http://localhost:4000/blog/tags.html">
+  <meta property="og:url" content="http://localhost:4000/snippets/">
 
-  <title>Blog tags | yoogottamk</title>
+  <title>My snippets | yoogottamk</title>
 
   <!-- bootstrap css -->
 
@@ -30,10 +30,6 @@
 
 <!-- fonts, included only where required to reduce load time -->
 
-  
-    
-      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap" rel="stylesheet" />
-    
   
 
   
@@ -71,7 +67,7 @@
       
       
         <li class="nav-item">
-          <a class="nav-link active" href="/blog/">
+          <a class="nav-link " href="/blog/">
             <i class="fa fa-pencil-square nav-icon align-middle" aria-hidden="true"></i>
             My blog
           </a>
@@ -142,87 +138,43 @@
 </div>
 
 
-    <div class="container">
-  
+    <link rel="stylesheet" href="/css/blog.css">
 
-  
-  
-  
-    <h2 id="GNU/Linux">GNU/Linux</h2>
-    <ul>
-      
-        <li>February 16, 2021: <a href="/blog/port-based-routing">Port based routing</a></li>
-      
-        <li>December 08, 2019: <a href="/blog/managing-path">How I manage PATH</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="PATH">PATH</h2>
-    <ul>
-      
-        <li>December 08, 2019: <a href="/blog/managing-path">How I manage PATH</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="X11">X11</h2>
-    <ul>
-      
-        <li>May 22, 2020: <a href="/blog/vim-anywhere">Editing in vim from anywhere*</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="automation">automation</h2>
-    <ul>
-      
-        <li>May 22, 2020: <a href="/blog/vim-anywhere">Editing in vim from anywhere*</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="crypto">crypto</h2>
-    <ul>
-      
-        <li>November 26, 2020: <a href="/blog/padding-oracle">Padding Oracle Attack</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="ctf">ctf</h2>
-    <ul>
-      
-        <li>November 26, 2020: <a href="/blog/padding-oracle">Padding Oracle Attack</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="iptables">iptables</h2>
-    <ul>
-      
-        <li>February 16, 2021: <a href="/blog/port-based-routing">Port based routing</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="padding-oracle">padding-oracle</h2>
-    <ul>
-      
-        <li>November 26, 2020: <a href="/blog/padding-oracle">Padding Oracle Attack</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="vim">vim</h2>
-    <ul>
-      
-        <li>May 22, 2020: <a href="/blog/vim-anywhere">Editing in vim from anywhere*</a></li>
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
+<div class="container">
+  <div class="md-form my-5">
+    <i class="fa fa-search"></i>
+    <input class="form-control text-center" type="text" placeholder="Looking for something in particular?" aria-label="Search" id="searchBar">
+  </div>
+
+  <div id="not-found"></div>
+
+  <div class="row justify-content-center snippets">
+    
+    
+      <div class="card mx-2 mb-3" id="/snippets/jupyter-imshow">
+        <div style="position: relative;">
+          <div class="card-body d-flex flex-column">
+            <h4 class="card-title">Jupyter imshow</h4>
+            <a class="stretched-link" href="/snippets/jupyter-imshow"></a>
+          </div>
+        </div>
+        <div class="tags-container">
+          
+            <a href="/snippets/tags.html#opencv" class="tag-link"><kbd>opencv</kbd></a>
+          
+            <a href="/snippets/tags.html#python" class="tag-link"><kbd>python</kbd></a>
+          
+            <a href="/snippets/tags.html#jupyter" class="tag-link"><kbd>jupyter</kbd></a>
+          
+            <a href="/snippets/tags.html#matplotlib" class="tag-link"><kbd>matplotlib</kbd></a>
+          
+        </div>
+      </div>
+    
+  </div>
 </div>
+
+<script src="/js/snippets.js"></script>
 
   </div>
 

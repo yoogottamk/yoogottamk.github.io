@@ -1,0 +1,1 @@
+const e=document.querySelectorAll("pre.highlight");document.querySelectorAll(".copy-code-button").forEach(((t,c)=>{const o=e[c].innerText;t.addEventListener("click",(()=>{navigator.clipboard.writeText(o),t.classList.add("copied"),setTimeout((()=>{t.classList.remove("copied")}),2e3)}))}));
