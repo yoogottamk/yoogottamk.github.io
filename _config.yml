@@ -38,6 +38,12 @@ defaults:
     values:
       layout: "null"
       navbarHeight: 60
+  -
+    scope:
+      path: ""
+      type: "snippets"
+    values:
+      comments: true
 
 collections:
   projects:
