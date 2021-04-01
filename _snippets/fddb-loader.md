@@ -179,13 +179,13 @@ class FDDBLoader:
         Generator, yields faces from all the annotation files present
         """
         current_file_idx = 0
-        current_file_loader = FDDBLoader.load_from_file(
-            self.annotation_files[current_file_idx],
-            self.allow_occluding,
-            self.imread_mode,
-        )
-
         while current_file_idx < len(self.annotation_files):
+            current_file_loader = self.load_from_file(
+                self.annotation_files[current_file_idx],
+                self.allow_occluding,
+                self.imread_mode,
+            )
+
             for ret in current_file_loader:
                 yield ret
                 self.returned_faces += 1
@@ -195,9 +195,4 @@ class FDDBLoader:
                     return
 
             current_file_idx += 1
-            current_file_loader = self.load_from_file(
-                self.annotation_files[current_file_idx],
-                self.allow_occluding,
-                self.imread_mode,
-            )
 ```
