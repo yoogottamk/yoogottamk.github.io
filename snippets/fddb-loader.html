@@ -366,13 +366,13 @@
         Generator, yields faces from all the annotation files present
         """</span>
         <span class="n">current_file_idx</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">current_file_loader</span> <span class="o">=</span> <span class="n">FDDBLoader</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">annotation_files</span><span class="p">[</span><span class="n">current_file_idx</span><span class="p">],</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">allow_occluding</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">imread_mode</span><span class="p">,</span>
-        <span class="p">)</span>
-
         <span class="k">while</span> <span class="n">current_file_idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">annotation_files</span><span class="p">):</span>
+            <span class="n">current_file_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">annotation_files</span><span class="p">[</span><span class="n">current_file_idx</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">allow_occluding</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">imread_mode</span><span class="p">,</span>
+            <span class="p">)</span>
+
             <span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">current_file_loader</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">ret</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">returned_faces</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -382,11 +382,6 @@
                     <span class="k">return</span>
 
             <span class="n">current_file_idx</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">current_file_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">annotation_files</span><span class="p">[</span><span class="n">current_file_idx</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">allow_occluding</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">imread_mode</span><span class="p">,</span>
-            <span class="p">)</span>
 </code></pre></div></div>
 
 </div>
