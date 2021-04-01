@@ -251,16 +251,16 @@
             return_grayscale: should returned face be grayscale?
             random_samples: should this return the faces in (semi-)random order?
         """</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_samples</span> <span class="o">=</span> <span class="n">n_samples</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">imread_mode</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">return_grayscale</span> <span class="k">else</span> <span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">allow_occluding</span> <span class="o">=</span> <span class="n">allow_occluding</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">annotation_files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">n_samples</span> <span class="o">=</span> <span class="n">n_samples</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">imread_mode</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">return_grayscale</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">allow_occluding</span> <span class="o">=</span> <span class="n">allow_occluding</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">annotation_files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span>
             <span class="s">"../dataset/FDDB-folds/FDDB-fold-*-ellipseList.txt"</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">returned_faces</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">returned_faces</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="k">if</span> <span class="n">random_samples</span><span class="p">:</span>
-            <span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">annotation_files</span><span class="p">)</span>
+            <span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">annotation_files</span><span class="p">)</span>
 
     <span class="o">@</span><span class="nb">staticmethod</span>
     <span class="k">def</span> <span class="nf">elliptical2rect</span><span class="p">(</span><span class="n">centre</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
@@ -282,7 +282,7 @@
         <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">centre</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">axes</span>
 
-        <span class="n">cos_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>
+        <span class="n">cos_angle</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>
 
         <span class="n">vertical_component</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">cos_angle</span>
         <span class="n">horizontal_component</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">cos_angle</span>
@@ -322,25 +322,25 @@
         <span class="n">file_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">annotation_file</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
 
         <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="n">img_name</span> <span class="o">=</span> <span class="n">file_obj</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">img_name</span> <span class="o">=</span> <span class="n">file_obj</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">strip</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">img_name</span> <span class="o">==</span> <span class="s">""</span><span class="p">:</span>
                 <span class="k">break</span>  <span class="c1"># EOF
-</span>            <span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">f</span><span class="s">"../dataset/{img_name}.jpg"</span><span class="p">,</span> <span class="n">imread_mode</span><span class="p">)</span>
+</span>            <span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="p">.</span><span class="n">imread</span><span class="p">(</span><span class="sa">f</span><span class="s">"../dataset/</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s">.jpg"</span><span class="p">,</span> <span class="n">imread_mode</span><span class="p">)</span>
 
-            <span class="n">n_faces</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">file_obj</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="n">n_faces</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">file_obj</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">strip</span><span class="p">())</span>
             <span class="n">faces</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">rects</span> <span class="o">=</span> <span class="p">[]</span>
 
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_faces</span><span class="p">):</span>
                 <span class="n">elliptical_params</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
-                    <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">filter</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="n">file_obj</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
+                    <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">filter</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="n">file_obj</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">strip</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)))</span>
                 <span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
                 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="n">elliptical_params</span>
-                <span class="n">rect_params</span> <span class="o">=</span> <span class="n">FDDBLoader</span><span class="o">.</span><span class="n">elliptical2rect</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">),</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">angle</span><span class="p">)</span>
+                <span class="n">rect_params</span> <span class="o">=</span> <span class="n">FDDBLoader</span><span class="p">.</span><span class="n">elliptical2rect</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">),</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">angle</span><span class="p">)</span>
                 <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">rect_params</span>
 
-                <span class="n">rects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rect_params</span><span class="p">)</span>
-                <span class="n">faces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="n">y</span> <span class="p">:</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">])</span>
+                <span class="n">rects</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">rect_params</span><span class="p">)</span>
+                <span class="n">faces</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="n">y</span> <span class="p">:</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">])</span>
 
             <span class="n">filtered_faces</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -352,12 +352,12 @@
 </span>                <span class="n">combos_to_check</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_faces</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
 
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">combos_to_check</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">FDDBLoader</span><span class="o">.</span><span class="n">does_intersect</span><span class="p">(</span><span class="n">rects</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rects</span><span class="p">[</span><span class="n">j</span><span class="p">]):</span>
+                    <span class="k">if</span> <span class="n">FDDBLoader</span><span class="p">.</span><span class="n">does_intersect</span><span class="p">(</span><span class="n">rects</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rects</span><span class="p">[</span><span class="n">j</span><span class="p">]):</span>
                         <span class="n">ret_allowed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ret_allowed</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
 
                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_faces</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">ret_allowed</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-                        <span class="n">filtered_faces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">faces</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                        <span class="n">filtered_faces</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">faces</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
             <span class="k">yield</span> <span class="k">from</span> <span class="n">filtered_faces</span>
 
@@ -366,23 +366,42 @@
         Generator, yields faces from all the annotation files present
         """</span>
         <span class="n">current_file_idx</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">current_file_idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">annotation_files</span><span class="p">):</span>
-            <span class="n">current_file_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">annotation_files</span><span class="p">[</span><span class="n">current_file_idx</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">allow_occluding</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">imread_mode</span><span class="p">,</span>
+        <span class="k">while</span> <span class="n">current_file_idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">annotation_files</span><span class="p">):</span>
+            <span class="n">current_file_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">load_from_file</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">annotation_files</span><span class="p">[</span><span class="n">current_file_idx</span><span class="p">],</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">allow_occluding</span><span class="p">,</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">imread_mode</span><span class="p">,</span>
             <span class="p">)</span>
 
             <span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">current_file_loader</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="n">ret</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">returned_faces</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">returned_faces</span> <span class="o">+=</span> <span class="mi">1</span>
 
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">returned_faces</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_samples</span><span class="p">:</span>
-                    <span class="n">current_file_loader</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">returned_faces</span> <span class="o">==</span> <span class="bp">self</span><span class="p">.</span><span class="n">n_samples</span><span class="p">:</span>
+                    <span class="n">current_file_loader</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
                     <span class="k">return</span>
 
             <span class="n">current_file_idx</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div></div>
+
+
+  
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://yoogottamk.github.io/snippets/fddb-loader";
+    this.page.identifier = "/snippets/fddb-loader";
+  };
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yoogottamk.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 </div>
 
