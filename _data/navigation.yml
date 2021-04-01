@@ -6,6 +6,10 @@
   url: /projects/
   icon: fa-flash
   description: Some stuff that I did in the small time I managed to get
+- title: Snippets
+  url: /snippets/
+  icon: fa-code
+  description: Cool random code snippets
 - title: About me
   url: /about/
   icon: fa-info-circle

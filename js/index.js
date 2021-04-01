@@ -23,6 +23,11 @@ const routes = {
             "{{ page.url | relative_url }}",
         {% endfor %}
     ],
+    "{{ '/snippets/' | relative_url }}": [
+        {% for page in site.snippets %}
+            "{{ page.url | relative_url }}",
+        {% endfor %}
+    ],
 }, helpStrings = {
     "ls": "Usage: ls [dir]\nList the files in a directory\nDefaults to current directory\nTakes absolute and relative paths\n",
     "cd": "Usage: cd [dir]\nChange the current directory to dir\nDefaults to root directory\nTakes absolute and relative paths\n",

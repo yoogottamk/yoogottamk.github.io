@@ -19,7 +19,7 @@
         <li class="nav-item">
           <a class="nav-link {% if page.url contains link.url %}active{% endif %}" href="{{ link.url | relative_url }}">
             <i class="fa {{ link.icon }} nav-icon align-middle" aria-hidden="true"></i>
-            {{ link.title }}
+            <span class="align-middle">{{ link.title }}</span>
           </a>
           <div class="nav-desc">{{ link.description }}</div>
         </li>
