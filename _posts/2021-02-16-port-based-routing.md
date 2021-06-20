@@ -6,7 +6,7 @@ tags:
  - networking
  - iptables
 credits:
-  - ["Vladislav Babienko, unsplash", "https://unsplash.com/s/photos/crossroad"]
+  - ["Vladislav Babienko, unsplash", "https://unsplash.com/photos/KTpSVEcU0XU"]
 ---
 
 Recently, my ISP started blocking outbound ssh connections[\*] and that hindered my workflow a lot. The only other internet connection I had was my mobile phone's wireless hotspot (limited data). Somehow, I need to send ONLY the ssh packets through my wireless interface. [<a href="#script">skip to script</a>]
