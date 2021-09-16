@@ -1,5 +1,5 @@
-- command: ffmpeg -i input-video.mp4 -vn -acodec copy output-audio.mp3
-  source: https://stackoverflow.com/a/27413824
+- command: ffmpeg -i input-video.mp4 -q:a 0 -map a output-audio.mp3
+  source: https://stackoverflow.com/a/36324719
   title: Extract audio from video
 - command: ffmpeg -i input-video.mp4 -vf "fps=10,scale=-1:720:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
   source: https://superuser.com/a/556031
