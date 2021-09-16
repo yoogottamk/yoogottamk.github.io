@@ -12,9 +12,9 @@
   
   
 
-  <meta property="og:url" content="https://yoogottamk.github.io/snippets/tags.html">
+  <meta property="og:url" content="https://yoogottamk.github.io/snippets/ffmpeg-invocations">
 
-  <title>Snippets tags | yoogottamk</title>
+  <title>Ffmpeg Invocations | yoogottamk</title>
 
   <!-- bootstrap css -->
 
@@ -155,160 +155,150 @@
 </div>
 
 
-    <div class="container">
-  
+    <link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="/css/syntax.css">
 
-  
-    <h2 id="dataset-loader">dataset-loader</h2>
-    <ul>
-      
-        
-      
-        
-          <li><a href="/snippets/fddb-loader">FDDB Loader</a></li>
-        
-      
-        
-      
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="fddb">fddb</h2>
-    <ul>
-      
-        
-      
-        
-          <li><a href="/snippets/fddb-loader">FDDB Loader</a></li>
-        
-      
-        
-      
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="ffmpeg">ffmpeg</h2>
-    <ul>
-      
-        
-      
-        
-      
-        
-      
-        
-          <li><a href="/snippets/ffmpeg-invocations">ffmpeg invocations</a></li>
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="jupyter">jupyter</h2>
-    <ul>
-      
-        
-          <li><a href="/snippets/jupyter-imshow">Jupyter imshow</a></li>
-        
-      
-        
-      
-        
-      
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="linear-programming">linear-programming</h2>
-    <ul>
-      
-        
-      
-        
-      
-        
-          <li><a href="/snippets/lp-visualizer">LP Visualizer</a></li>
-        
-      
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="matplotlib">matplotlib</h2>
-    <ul>
-      
-        
-          <li><a href="/snippets/jupyter-imshow">Jupyter imshow</a></li>
-        
-      
-        
-      
-        
-          <li><a href="/snippets/lp-visualizer">LP Visualizer</a></li>
-        
-      
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="opencv">opencv</h2>
-    <ul>
-      
-        
-          <li><a href="/snippets/jupyter-imshow">Jupyter imshow</a></li>
-        
-      
-        
-      
-        
-      
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="python">python</h2>
-    <ul>
-      
-        
-          <li><a href="/snippets/jupyter-imshow">Jupyter imshow</a></li>
-        
-      
-        
-          <li><a href="/snippets/fddb-loader">FDDB Loader</a></li>
-        
-      
-        
-          <li><a href="/snippets/lp-visualizer">LP Visualizer</a></li>
-        
-      
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
-    <h2 id="visualization">visualization</h2>
-    <ul>
-      
-        
-      
-        
-      
-        
-          <li><a href="/snippets/lp-visualizer">LP Visualizer</a></li>
-        
-      
-        
-      
-    </ul>
-    <hr class="w-75 mx-auto" style="background-color: gray; height: 1px; border: 0;">
-  
+
+<div class="container">
+  <a href="/snippets/">⬅ All snippets</a>
+  <br /> <br />
+
+  <h1>ffmpeg invocations</h1>
+</div>
+
+<br />
+
+<span class="vertical-gap"></span>
+
+<div class="container" id="post-body">
+  <p>Here’s a list of ffmpeg filters/commands I use often but still can’t recall from memory. I’ll try to include the original source wherever I can find it. Since the original sources do a great job at explaining the options, I’m not going to repeat them here.</p>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header"></h1>
+
+<h2 id="index">Index</h2>
+<ul>
+
+  <li><a href="#extract-audio-from-video">Extract audio from video</a></li>
+
+  <li><a href="#convert-mp4-to-gif">Convert mp4 to gif</a></li>
+
+  <li><a href="#change-video-speed">Change video speed</a></li>
+
+  <li><a href="#stacking-videos">Stacking videos</a></li>
+
+  <li><a href="#concatenate-videos">Concatenate videos</a></li>
+
+</ul>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header"></h1>
+
+<h3 id="extract-audio-from-video">Extract audio from video <a href="https://stackoverflow.com/a/27413824" rel="noopener" target="_blank">[source]</a></h3>
+
+<p><!-- this section was taken from
+  https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
+--></p>
+
+<!--
+  BEGIN_SECTION
+-->
+<div class="code-header">
+    <button class="copy-code-button" aria-label="Copy code to clipboard"></button>
+</div>
+<!--
+  END_SECTION
+-->
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ffmpeg <span class="nt">-i</span> input-video.mp4 <span class="nt">-vn</span> <span class="nt">-acodec</span> copy output-audio.mp3
+</code></pre></div></div>
+<div class="py-4"></div>
+
+<h3 id="convert-mp4-to-gif">Convert mp4 to gif <a href="https://superuser.com/a/556031" rel="noopener" target="_blank">[source]</a></h3>
+
+<p><!-- this section was taken from
+  https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
+--></p>
+
+<!--
+  BEGIN_SECTION
+-->
+<div class="code-header">
+    <button class="copy-code-button" aria-label="Copy code to clipboard"></button>
+</div>
+<!--
+  END_SECTION
+-->
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ffmpeg <span class="nt">-i</span> input-video.mp4 <span class="nt">-vf</span> <span class="s2">"fps=10,scale=-1:720:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse"</span> <span class="nt">-loop</span> 0 output.gif
+</code></pre></div></div>
+<div class="py-4"></div>
+
+<h3 id="change-video-speed">Change video speed <a href="https://trac.ffmpeg.org/wiki/How%20to%20speed%20up%20/%20slow%20down%20a%20video" rel="noopener" target="_blank">[source]</a></h3>
+
+<p>This particular example speeds up the video by 2x</p>
+
+<p><!-- this section was taken from
+  https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
+--></p>
+
+<!--
+  BEGIN_SECTION
+-->
+<div class="code-header">
+    <button class="copy-code-button" aria-label="Copy code to clipboard"></button>
+</div>
+<!--
+  END_SECTION
+-->
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ffmpeg <span class="nt">-i</span> input-video.mp4 <span class="nt">-filter</span>:v <span class="s2">"setpts=0.5*PTS"</span> output-video.mp4
+</code></pre></div></div>
+<div class="py-4"></div>
+
+<h3 id="stacking-videos">Stacking videos <a href="https://stackoverflow.com/a/33764934" rel="noopener" target="_blank">[source]</a></h3>
+
+<p><!-- this section was taken from
+  https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
+--></p>
+
+<!--
+  BEGIN_SECTION
+-->
+<div class="code-header">
+    <button class="copy-code-button" aria-label="Copy code to clipboard"></button>
+</div>
+<!--
+  END_SECTION
+-->
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ffmpeg <span class="nt">-i</span> input-video-1.mp4 <span class="nt">-i</span> input-video-2.mp4 <span class="nt">-filter_complex</span> <span class="o">[</span>hstack|vstack] output-video.mp4
+</code></pre></div></div>
+<div class="py-4"></div>
+
+<h3 id="concatenate-videos">Concatenate videos <a href="https://stackoverflow.com/a/11175851" rel="noopener" target="_blank">[source]</a></h3>
+
+<p><!-- this section was taken from
+  https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
+--></p>
+
+<!--
+  BEGIN_SECTION
+-->
+<div class="code-header">
+    <button class="copy-code-button" aria-label="Copy code to clipboard"></button>
+</div>
+<!--
+  END_SECTION
+-->
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ffmpeg <span class="nt">-i</span> input-video-1.mp4 <span class="nt">-i</span> input-video-2.mp4 <span class="nt">-filter_complex</span> <span class="s2">"[0:v] [0:a] [1:v] [1:a] concat=n=2:v=1:a=1 [v] [a]"</span> <span class="nt">-map</span> <span class="s2">"[v]"</span> <span class="nt">-map</span> <span class="s2">"[a]"</span> output-video.mp4
+</code></pre></div></div>
+<div class="py-4"></div>
+
+
 </div>
 
   </div>
