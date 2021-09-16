@@ -196,11 +196,12 @@
 
 <h1 class="section-header"></h1>
 
-<h3 id="extract-audio-from-video">Extract audio from video <a href="https://stackoverflow.com/a/27413824" rel="noopener" target="_blank">[source]</a></h3>
+<h3 id="extract-audio-from-video">Extract audio from video <a href="https://stackoverflow.com/a/36324719" rel="noopener" target="_blank">[source]</a></h3>
 
-<p><!-- this section was taken from
+<!--
+  this section was taken from
   https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
---></p>
+-->
 
 <!--
   BEGIN_SECTION
@@ -212,15 +213,16 @@
   END_SECTION
 -->
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ffmpeg <span class="nt">-i</span> input-video.mp4 <span class="nt">-vn</span> <span class="nt">-acodec</span> copy output-audio.mp3
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ffmpeg <span class="nt">-i</span> input-video.mp4 <span class="nt">-q</span>:a 0 <span class="nt">-map</span> a output-audio.mp3
 </code></pre></div></div>
 <div class="py-4"></div>
 
 <h3 id="convert-mp4-to-gif">Convert mp4 to gif <a href="https://superuser.com/a/556031" rel="noopener" target="_blank">[source]</a></h3>
 
-<p><!-- this section was taken from
+<!--
+  this section was taken from
   https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
---></p>
+-->
 
 <!--
   BEGIN_SECTION
@@ -240,9 +242,10 @@
 
 <p>This particular example speeds up the video by 2x</p>
 
-<p><!-- this section was taken from
+<!--
+  this section was taken from
   https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
---></p>
+-->
 
 <!--
   BEGIN_SECTION
@@ -260,9 +263,10 @@
 
 <h3 id="stacking-videos">Stacking videos <a href="https://stackoverflow.com/a/33764934" rel="noopener" target="_blank">[source]</a></h3>
 
-<p><!-- this section was taken from
+<!--
+  this section was taken from
   https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
---></p>
+-->
 
 <!--
   BEGIN_SECTION
@@ -280,9 +284,10 @@
 
 <h3 id="concatenate-videos">Concatenate videos <a href="https://stackoverflow.com/a/11175851" rel="noopener" target="_blank">[source]</a></h3>
 
-<p><!-- this section was taken from
+<!--
+  this section was taken from
   https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/
---></p>
+-->
 
 <!--
   BEGIN_SECTION
