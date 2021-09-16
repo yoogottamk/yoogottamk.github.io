@@ -1,0 +1,16 @@
+- command: ffmpeg -i input-video.mp4 -vn -acodec copy output-audio.mp3
+  source: https://stackoverflow.com/a/27413824
+  title: Extract audio from video
+- command: ffmpeg -i input-video.mp4 -vf "fps=10,scale=-1:720:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
+  source: https://superuser.com/a/556031
+  title: Convert mp4 to gif
+- command: ffmpeg -i input-video.mp4 -filter:v "setpts=0.5*PTS" output-video.mp4
+  source: https://trac.ffmpeg.org/wiki/How%20to%20speed%20up%20/%20slow%20down%20a%20video
+  title: Change video speed
+  comments: This particular example speeds up the video by 2x
+- command: ffmpeg -i input-video-1.mp4 -i input-video-2.mp4 -filter_complex [hstack|vstack] output-video.mp4
+  source: https://stackoverflow.com/a/33764934
+  title: Stacking videos
+- command: ffmpeg -i input-video-1.mp4 -i input-video-2.mp4 -filter_complex "[0:v] [0:a] [1:v] [1:a] concat=n=2:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" output-video.mp4
+  source: https://stackoverflow.com/a/11175851
+  title: Concatenate videos
