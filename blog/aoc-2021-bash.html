@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="language" content="english">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="content-type" content="text/html">
+  <meta name="author" content="Yoogottam Khandelwal">
+  <meta name="designer" content="Yoogottam Khandelwal">
+    <meta property="og:title" content="AoC 2021 in bash">
+    <meta property="og:image" content="https://yoogottamk.github.io/assets/images/posts/aoc-bash.webp">
+    <meta property="og:description" content="I feel AoC is a nice way to get to know the language of your choice. There’s string manipulation, basic mathematics and more. bash isn’t the ideal language for this...">
+  <meta property="og:url" content="https://yoogottamk.github.io/blog/aoc-2021-bash">
+  <title>Aoc 2021 Bash | yoogottamk</title>
+  <!-- bootstrap css -->
+<link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous" />
+<link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+  crossorigin="anonymous" />
+<!-- fonts, included only where required to reduce load time -->
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap" rel="stylesheet" />
+<!-- fonts to be loaded on all pages are here -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/copy-code.css">
+  <link rel="shortcut icon" href="/assets/images/yoogottamk.webp" type="image/x-icon" />
+</head>
+<body>
+  <div class="content">
+    <!-- custom css for managing navbar -->
+<link rel="stylesheet" href="/css/navbar.css" />
+<script src="/js/navbar.js"></script>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#navbarContentSmall" aria-label="Show/hide navbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/">
+    <img src="/assets/images/yoogottamk.webp" alt="yk logo" width="30" height="30">
+    yoogottamk
+  </a>
+  <div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/blog/">
+            <i class="fa fa-pencil-square nav-icon align-middle" aria-hidden="true"></i>
+            <span class="align-middle">My blog</span>
+          </a>
+          <div class="nav-desc">My experiences with vim, GNU plus linux and other cool stuff</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/projects/">
+            <i class="fa fa-flash nav-icon align-middle" aria-hidden="true"></i>
+            <span class="align-middle">My projects</span>
+          </a>
+          <div class="nav-desc">Some stuff that I did in the small time I managed to get</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/snippets/">
+            <i class="fa fa-code nav-icon align-middle" aria-hidden="true"></i>
+            <span class="align-middle">Snippets</span>
+          </a>
+          <div class="nav-desc">Cool random code snippets</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/about/">
+            <i class="fa fa-info-circle nav-icon align-middle" aria-hidden="true"></i>
+            <span class="align-middle">About me</span>
+          </a>
+          <div class="nav-desc">Want to know more about me?</div>
+        </li>
+    </ul>
+  </div>
+</nav>
+<div class="modal left fade" id="navbarContentSmall" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>yoogottamk</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="fa fa-pencil-square nav-icon align-middle" aria-hidden="true"></i>
+                My blog
+              </a>
+              <div class="nav-desc">My experiences with vim, GNU plus linux and other cool stuff</div>
+            </li>
+            <hr>
+            <li class="nav-item">
+              <a class="nav-link" href="/projects/">
+                <i class="fa fa-flash nav-icon align-middle" aria-hidden="true"></i>
+                My projects
+              </a>
+              <div class="nav-desc">Some stuff that I did in the small time I managed to get</div>
+            </li>
+            <hr>
+            <li class="nav-item">
+              <a class="nav-link" href="/snippets/">
+                <i class="fa fa-code nav-icon align-middle" aria-hidden="true"></i>
+                Snippets
+              </a>
+              <div class="nav-desc">Cool random code snippets</div>
+            </li>
+            <hr>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="fa fa-info-circle nav-icon align-middle" aria-hidden="true"></i>
+                About me
+              </a>
+              <div class="nav-desc">Want to know more about me?</div>
+            </li>
+            <hr>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="/css/syntax.css">
+<div class="jumbotron jumbotron-fluid"
+   style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/assets/images/posts/aoc-bash.webp);">
+  <div class="container">
+    <h1>AoC 2021 in bash</h1>
+    December 05, 2021
+  </div>
+</div>
+<div class="container" id="post-body">
+  <p>I feel <a href="https://adventofcode.com/" target="_blank" rel="noopener">AoC</a> is a nice way to get to know the language of your choice. There’s string manipulation, basic mathematics and more. <code class="highlighter-rouge">bash</code> isn’t the ideal language for this task because (in my opinion) it wasn’t meant to solve these kind of problems. Nevertheless, I wanted to expand my experience with <code class="highlighter-rouge">bash</code> and so I’ll attempt to solve all the AoC problems using this language.</p>
+<p>I might not be able to solve the problems on the same day (heck, I’m starting almost a week late) and might even skip some problems altogether. I also plan to use common tools like <code class="highlighter-rouge">grep</code>, <code class="highlighter-rouge">sed</code>, <code class="highlighter-rouge">awk</code>, etc and not rely on pure bash.</p>
+<h1 class="section-header">Index</h1>
+<ul>
+  <li>Day 01 <a href="#d01p1">part 1</a> <a href="#d01p2">part 2</a></li>
+</ul>
+<div class="text-center py-4">· · ·</div>
+<h1 class="section-header">Day 01</h1>
+<h2 class="section-header pt-4" id="d01p1">Part 1</h2>
+<p>First, let’s get the first value and setup variables</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">prev_value</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">head</span> <span class="nt">-1</span> <span class="nv">$INP_FILE</span><span class="si">)</span><span class="s2">"</span>
+<span class="c"># keep count in this variable</span>
+<span class="nv">inc_count</span><span class="o">=</span>0
+<span class="c"># store input file in a variable</span>
+<span class="nv">INP_FILE</span><span class="o">=</span><span class="s2">"../inp/1"</span>
+</code></pre></div></div>
+<p>Now, skipping the first line, we need to iterate over the rest and count the changes</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'2,$p'</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span> | <span class="k">while </span><span class="nb">read </span>value<span class="p">;</span> <span class="k">do</span>
+    <span class="o">((</span> value <span class="o">&gt;</span> prev_value <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span> inc_count++ <span class="o">))</span>
+    <span class="nv">prev_value</span><span class="o">=</span><span class="nv">$value</span>
+<span class="k">done</span>
+</code></pre></div></div>
+<p>Finally, lets print the answer</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$inc_count</span>
+<span class="c"># Output:</span>
+0
+</code></pre></div></div>
+<p><code class="highlighter-rouge">WRONG ANSWER</code>. Umm… what?! After opening the file and confirming that the answer indeed isn’t 0, I decided to do some print debugging…</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'2,$p'</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span> | <span class="k">while </span><span class="nb">read </span>value<span class="p">;</span> <span class="k">do</span>
+    <span class="o">((</span> value <span class="o">&gt;</span> prev_value <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span> inc_count++ <span class="o">))</span>
+    <span class="nb">echo</span> <span class="nv">$inc_count</span>
+    <span class="nv">prev_value</span><span class="o">=</span><span class="nv">$value</span>
+<span class="k">done</span>
+</code></pre></div></div>
+<p>…and surely, non zero values were being printed:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+1398
+1399
+1400
+1400
+</code></pre></div></div>
+<p><a href="https://stackoverflow.com/q/4667509" target="_blank" rel="noopener">This</a> confirmed my doubt that the piped <code class="highlighter-rouge">while</code> loop was actually running inside a subshell.</p>
+<p>A fix, also mentioned in the post was to wrap the <code class="highlighter-rouge">while</code> loop and <code class="highlighter-rouge">echo</code> inside braces to make it be processed by the same subshell.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'2,$p'</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span> | <span class="o">{</span>
+    <span class="k">while </span><span class="nb">read </span>value<span class="p">;</span> <span class="k">do</span>
+        <span class="o">((</span> value <span class="o">&gt;</span> prev_value <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span> inc_count++ <span class="o">))</span>
+        <span class="nv">prev_value</span><span class="o">=</span><span class="nv">$value</span>
+    <span class="k">done
+    </span><span class="nb">echo</span> <span class="nv">$inc_count</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Note that the variable originally declared outside is still 0.</p>
+<h2 class="section-header pt-4" id="d01p2">Part 2</h2>
+<p>Firstly, I’ll make a function, <code class="highlighter-rouge">part1</code> that solves part 1. It’ll accept a single argument: a filename which has the numbers</p>
+<p>We’re going to use <code class="highlighter-rouge">paste</code> and <a href="https://tldp.org/LDP/abs/html/process-sub.html" rel="noopener" target="_blank">process substitution</a> to calculate the window sum.</p>
+<p>A little bit of background first: we want to offset the stream of numbers and want to see them side by side, very much like the illustration provided on the website:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>199  A
+200  A B
+208  A B C
+210    B C D
+200  E   C D
+207  E F   D
+240  E F G
+269    F G H
+260      G H
+263        H
+</code></pre></div></div>
+<p>Using paste, we can merge two numbers from the lines together:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">paste</span> &lt;<span class="o">(</span><span class="nb">seq </span>1 5<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">seq </span>1 5<span class="o">)</span>
+<span class="c"># Output:</span>
+1	1
+2	2
+3	3
+4	4
+5	5
+</code></pre></div></div>
+<p>We can achieve the offset simply by using <code class="highlighter-rouge">echo</code>. Also, changing delimiter to +</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">paste</span> <span class="nt">-d</span>+ &lt;<span class="o">(</span><span class="nb">seq </span>1 5<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span><span class="p">;</span> <span class="nb">seq </span>1 5<span class="o">)</span>
+<span class="c"># Output:</span>
+1+
+2+1
+3+2
+4+3
+5+4
++5
+</code></pre></div></div>
+<p>Passing this to <code class="highlighter-rouge">bc</code> will give us the sum for valid windows and print <code class="highlighter-rouge">(standard_in) [NUMBER]: syntax error</code> to stderr, which will get ignored anyways ;)</p>
+<p>Putting it all together:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">tmpfile</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">mktemp</span><span class="si">)</span><span class="s2">"</span>
+<span class="c"># calculate sum of 3-interval window</span>
+<span class="c"># NOTE: numbers not part of a window will get ignored anyways</span>
+<span class="nb">paste</span> <span class="nt">-d</span>+ <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span> &lt;<span class="o">(</span><span class="nb">echo</span><span class="p">;</span> <span class="nb">cat</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span><span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span><span class="p">;</span> <span class="nb">echo</span><span class="p">;</span> <span class="nb">cat</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span><span class="o">)</span> | bc <span class="o">&gt;</span> <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">"</span> 2&gt;/dev/null
+part1 <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">"</span>
+<span class="nb">rm</span> <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">"</span>
+</code></pre></div></div>
+<div class="text-center py-4">· · ·</div>
+<h1 class="section-header"></h1>
+<p>My solutions, for both <code class="highlighter-rouge">bash</code> and very little <code class="highlighter-rouge">rust</code> can be found <a href="https://github.com/yoogottamk/aoc-2021" target="_blank" rel="noopener">here</a>.</p>
+  <div class="suggested row">
+    <div class="col-md-4 col-sm-12"
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/assets/images/posts/split-path.webp);">
+      <a class="prev stretched-link" href="/blog/port-based-routing"></a>
+      <span class="post-title">&laquo; Port based routing</span>
+    </div>
+  </div>
+  <script src="https://utteranc.es/client.js"
+      repo="yoogottamk/yoogottamk.github.io"
+      issue-term="pathname"
+      theme="github-dark"
+      crossorigin="anonymous"
+      async>
+  </script>
+</div>
+  </div>
+  <link rel="stylesheet" href="/css/footer.css">
+<footer class="footer fixed-bottom">
+  <div class="container d-flex flex-row justify-content-between">
+    <span class="d-flex align-items-center">Yoogottam Khandelwal</span>
+    <span>
+      <ul class="list-unstyled list-group list-group-horizontal">
+          <li class="icon-li"><a href="https://github.com/yoogottamk/" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
+          <li class="icon-li"><a href="https://www.linkedin.com/in/yoogottamk/" target="_blank" rel="noopener"><i class="fa fa-linkedin-square"></i></a></li>
+          <li class="icon-li"><a href="https://www.facebook.com/yoogottamk" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+          <li class="icon-li"><a href="mailto:yoogottamk@outlook.com" target="_blank" rel="noopener"><i class="fa fa-envelope"></i></a></li>
+      </ul>
+    </span>
+  </div>
+  <div class="container credits w-100 text-right">
+  </div>
+</footer>
+  <!-- included at the end of body, as all script files should -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+  integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="
+  crossorigin="anonymous"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+  crossorigin="anonymous"></script>
+<script src="/js/copy-code.js"></script>
+<script src="/js/link-hover.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@
   <meta http-equiv="content-type" content="text/html">
   <meta name="author" content="Yoogottam Khandelwal">
   <meta name="designer" content="Yoogottam Khandelwal">
-  <meta property="og:url" content="http://localhost:4000/snippets/ffmpeg-invocations">
+  <meta property="og:url" content="https://yoogottamk.github.io/snippets/ffmpeg-invocations">
   <title>Ffmpeg Invocations | yoogottamk</title>
   <!-- bootstrap css -->
 <link rel="stylesheet"
@@ -226,6 +226,14 @@
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ffmpeg <span class="nt">-i</span> input-video-1.mp4 <span class="nt">-i</span> input-video-2.mp4 <span class="nt">-filter_complex</span> <span class="s2">"[0:v] [0:a] [1:v] [1:a] concat=n=2:v=1:a=1 [v] [a]"</span> <span class="nt">-map</span> <span class="s2">"[v]"</span> <span class="nt">-map</span> <span class="s2">"[a]"</span> output-video.mp4
 </code></pre></div></div>
 <div class="py-4"></div>
+  <div class="text-center py-4">· · ·</div>
+  <script src="https://utteranc.es/client.js"
+      repo="yoogottamk/yoogottamk.github.io"
+      issue-term="pathname"
+      theme="github-dark"
+      crossorigin="anonymous"
+      async>
+  </script>
 </div>
   </div>
   <link rel="stylesheet" href="/css/footer.css">
@@ -258,5 +266,6 @@
   integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
   crossorigin="anonymous"></script>
 <script src="/js/copy-code.js"></script>
+<script src="/js/link-hover.js"></script>
 </body>
 </html>
