@@ -1,5 +1,9 @@
 $("document").ready(() => {
   document.querySelectorAll("a").forEach((el) => {
+    // only show previews for stuff opening in new page
+    // an okayish heuristic for the previews I dont want to have
+    if (el.getAttribute("target") != "_blank") return;
+
     fetch(`https://url2og.herokuapp.com/api/v1/${encodeURIComponent(el.href)}`)
       .then((resp) => resp.json())
       .then((data) => {
