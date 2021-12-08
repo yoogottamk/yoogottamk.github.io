@@ -431,7 +431,7 @@ I use <code class="highlighter-rouge">cut</code> to only look at that specific c
 </code></pre></div></div>
 
 <h3 class="pt-4">Base 2 to decimal</h3>
-<p><code class="highlighter-rouge">bc</code> has a special variable called <code class="highlighter-rouge">ibase</code> that controls the base of input. In case you were wondering, <code class="highlighter-rouge">obase</code> also exists. So, we can do math in binary and get the result in decimal. For example, multiplying 10 (<code class="highlighter-rouge">1010</code> in binary) and 5 (<code class="highlighter-rouge">101</code> in binary):</p>
+<p><code class="highlighter-rouge">bc</code> has a special variable called <code class="highlighter-rouge">ibase</code> that controls the <code class="highlighter-rouge">base</code> of <code class="highlighter-rouge">i</code>nput. In case you were wondering, <code class="highlighter-rouge">obase</code> also exists. So, we can do math in binary and get the result in decimal. For example, multiplying 10 (<code class="highlighter-rouge">1010</code> in binary) and 5 (<code class="highlighter-rouge">101</code> in binary):</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bc <span class="o">&lt;&lt;&lt;</span> <span class="s2">"ibase=2; 1010 * 101"</span>
 <span class="c"># Output:</span>
 50
