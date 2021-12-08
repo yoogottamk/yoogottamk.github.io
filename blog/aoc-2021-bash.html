@@ -136,6 +136,7 @@
 <h1 class="section-header">Index</h1>
 <ul>
   <li>Day 01 <a href="#d01p1">part 1</a> <a href="#d01p2">part 2</a></li>
+  <li>Day 02 <a href="#d02p1">part 2</a> <a href="#d02p2">part 2</a></li>
 </ul>
 <div class="text-center py-4">· · ·</div>
 <h1 class="section-header">Day 01</h1>
@@ -225,6 +226,55 @@
 <span class="nb">paste</span> <span class="nt">-d</span>+ <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span> &lt;<span class="o">(</span><span class="nb">echo</span><span class="p">;</span> <span class="nb">cat</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span><span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span><span class="p">;</span> <span class="nb">echo</span><span class="p">;</span> <span class="nb">cat</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span><span class="o">)</span> | bc <span class="o">&gt;</span> <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">"</span> 2&gt;/dev/null
 part1 <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">"</span>
 <span class="nb">rm</span> <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">"</span>
+</code></pre></div></div>
+<div class="text-center py-4">· · ·</div>
+<h1 class="section-header">Day 02</h1>
+<p>There was nothing surprising or special about my solution for Day 02 so I’ll just put them here:</p>
+<h2 class="section-header pt-4" id="d02p1">Part 1</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>part1 <span class="o">{</span>
+    <span class="nv">horizontal</span><span class="o">=</span>0
+    <span class="nv">depth</span><span class="o">=</span>0
+    <span class="k">while </span><span class="nb">read </span>value<span class="p">;</span> <span class="k">do
+        </span><span class="nv">directive</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">awk</span> <span class="s1">'{print $1}'</span> <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$value</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
+        <span class="nv">value</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">awk</span> <span class="s1">'{print $2}'</span> <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$value</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
+        <span class="k">case</span> <span class="nv">$directive</span> <span class="k">in
+            </span>forward<span class="p">)</span>
+                <span class="o">((</span> horizontal +<span class="o">=</span> value <span class="o">))</span>
+                <span class="p">;;</span>
+            down<span class="p">)</span>
+                <span class="o">((</span> depth +<span class="o">=</span> value <span class="o">))</span>
+                <span class="p">;;</span>
+            up<span class="p">)</span>
+                <span class="o">((</span> depth -<span class="o">=</span> value <span class="o">))</span>
+                <span class="p">;;</span>
+        <span class="k">esac</span>
+    <span class="k">done</span> &lt; <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="k">$((</span> horizontal <span class="o">*</span> depth <span class="k">))</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h2 class="section-header pt-4" id="d02p2">Part 2</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>part2 <span class="o">{</span>
+    <span class="nv">horizontal</span><span class="o">=</span>0
+    <span class="nv">depth</span><span class="o">=</span>0
+    <span class="nv">aim</span><span class="o">=</span>0
+    <span class="k">while </span><span class="nb">read </span>value<span class="p">;</span> <span class="k">do
+        </span><span class="nv">directive</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">awk</span> <span class="s1">'{print $1}'</span> <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$value</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
+        <span class="nv">value</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">awk</span> <span class="s1">'{print $2}'</span> <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$value</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
+        <span class="k">case</span> <span class="nv">$directive</span> <span class="k">in
+            </span>forward<span class="p">)</span>
+                <span class="o">((</span> horizontal +<span class="o">=</span> value <span class="o">))</span>
+                <span class="o">((</span> depth +<span class="o">=</span> value <span class="k">*</span> aim <span class="o">))</span>
+                <span class="p">;;</span>
+            down<span class="p">)</span>
+                <span class="o">((</span> aim +<span class="o">=</span> value <span class="o">))</span>
+                <span class="p">;;</span>
+            up<span class="p">)</span>
+                <span class="o">((</span> aim -<span class="o">=</span> value <span class="o">))</span>
+                <span class="p">;;</span>
+        <span class="k">esac</span>
+    <span class="k">done</span> &lt; <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="k">$((</span> horizontal <span class="o">*</span> depth <span class="k">))</span>
+<span class="o">}</span>
 </code></pre></div></div>
 <div class="text-center py-4">· · ·</div>
 <h1 class="section-header"></h1>
