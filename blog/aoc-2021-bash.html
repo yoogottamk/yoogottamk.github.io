@@ -234,10 +234,8 @@ part1 <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>part1 <span class="o">{</span>
     <span class="nv">horizontal</span><span class="o">=</span>0
     <span class="nv">depth</span><span class="o">=</span>0
-    <span class="k">while </span><span class="nb">read </span>value<span class="p">;</span> <span class="k">do
-        </span><span class="nv">directive</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">awk</span> <span class="s1">'{print $1}'</span> <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$value</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
-        <span class="nv">value</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">awk</span> <span class="s1">'{print $2}'</span> <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$value</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
-        <span class="k">case</span> <span class="nv">$directive</span> <span class="k">in
+    <span class="k">while </span><span class="nb">read </span>directive value<span class="p">;</span> <span class="k">do
+        case</span> <span class="nv">$directive</span> <span class="k">in
             </span>forward<span class="p">)</span>
                 <span class="o">((</span> horizontal +<span class="o">=</span> value <span class="o">))</span>
                 <span class="p">;;</span>
@@ -257,10 +255,8 @@ part1 <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">
     <span class="nv">horizontal</span><span class="o">=</span>0
     <span class="nv">depth</span><span class="o">=</span>0
     <span class="nv">aim</span><span class="o">=</span>0
-    <span class="k">while </span><span class="nb">read </span>value<span class="p">;</span> <span class="k">do
-        </span><span class="nv">directive</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">awk</span> <span class="s1">'{print $1}'</span> <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$value</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
-        <span class="nv">value</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">awk</span> <span class="s1">'{print $2}'</span> <span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="nv">$value</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
-        <span class="k">case</span> <span class="nv">$directive</span> <span class="k">in
+    <span class="k">while </span><span class="nb">read </span>directive value<span class="p">;</span> <span class="k">do
+        case</span> <span class="nv">$directive</span> <span class="k">in
             </span>forward<span class="p">)</span>
                 <span class="o">((</span> horizontal +<span class="o">=</span> value <span class="o">))</span>
                 <span class="o">((</span> depth +<span class="o">=</span> value <span class="k">*</span> aim <span class="o">))</span>
