@@ -3,3 +3,4 @@ _site
 .publish
 node_modules
 vendor
+_drafts
