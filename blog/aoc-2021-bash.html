@@ -10,13 +10,13 @@
 
   
     <meta property="og:title" content="AoC 2021 in bash">
-    <meta property="og:image" content="http://localhost:4000/assets/images/posts/aoc-bash.webp">
+    <meta property="og:image" content="https://yoogottamk.github.io/assets/images/posts/aoc-bash.webp">
     <meta property="og:description" content="I feel AoC is a nice way to get to know the language of your choice. There’s string manipulation, basic mathematics and more. bash isn’t the ideal language for this...">
   
   
   
 
-  <meta property="og:url" content="http://localhost:4000/blog/aoc-2021-bash">
+  <meta property="og:url" content="https://yoogottamk.github.io/blog/aoc-2021-bash">
 
   <title>Aoc 2021 Bash | yoogottamk</title>
 
@@ -453,7 +453,7 @@ I use <code class="highlighter-rouge">cut</code> to only look at that specific c
         <span class="o">((</span> set_bit_counts[cur_bit] <span class="o">&gt;=</span> n - set_bit_counts[cur_bit] <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">reqd_bit</span><span class="o">=</span>1 <span class="o">||</span> <span class="nv">reqd_bit</span><span class="o">=</span>0
 
         <span class="c"># ignore for `cur_bit` characters (0 indexed so -1 offset not needed)</span>
-        <span class="c"># and then look for `set_bit`</span>
+        <span class="c"># and then look for `reqd_bit`</span>
         <span class="nv">o2_candidates</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">grep</span> <span class="nt">-E</span> <span class="s2">"^.{</span><span class="nv">$cur_bit</span><span class="s2">}</span><span class="k">${</span><span class="nv">reqd_bit</span><span class="k">}</span><span class="s2">"</span> <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$o2_candidates</span><span class="s2">"</span> <span class="si">)</span><span class="s2">"</span>
         <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$o2_candidates</span><span class="s2">"</span> <span class="o">&gt;</span> <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">"</span>
 
