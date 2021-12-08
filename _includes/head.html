@@ -16,7 +16,7 @@
     <meta property="og:image" content="{{ page.projectImage | prepend: '/assets/images/projects/' | prepend: site.url }}">
     <meta property="og:description" content="{{ page.content | strip_html | strip_newlines | truncatewords: 30 }}">
   {% endif %}
-  {% if page.layout == "project" %}
+  {% if page.layout == "snippet" %}
     <meta property="og:title" content="{{ page.snippetTitle }}">
     <meta property="og:description" content="Useful code snippets">
   {% endif %}
