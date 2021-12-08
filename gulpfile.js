@@ -26,7 +26,8 @@ gulp.task("scripts", () =>
 gulp.task("html-clean", () =>
   gulp
     .src("./_site/**/*.html", { base: "./" })
-    .pipe(removeEmptyLines())
+    // was messing up newlines in code too :(
+    // .pipe(removeEmptyLines())
     .pipe(gulp.dest(".")));
 
 // push to github pages
