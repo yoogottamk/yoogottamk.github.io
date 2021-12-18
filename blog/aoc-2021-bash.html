@@ -11,7 +11,7 @@
   
     <meta property="og:title" content="AoC 2021 in bash">
     <meta property="og:image" content="https://yoogottamk.github.io/assets/images/posts/aoc-bash.webp">
-    <meta property="og:description" content="I feel AoC is a nice way to get to know the language of your choice. There’s string manipulation, basic mathematics and more. bash isn’t the ideal language for this...">
+    <meta property="og:description" content="I feel AoC is a nice way to get to know the language of your choice. There's string manipulation, basic mathematics and more. bash isn't the ideal language for this...">
   
   
   
@@ -175,15 +175,17 @@
 </div>
 
 <div class="container" id="post-body">
-  <p>I feel <a href="https://adventofcode.com/" target="_blank" rel="noopener">AoC</a> is a nice way to get to know the language of your choice. There’s string manipulation, basic mathematics and more. <code class="highlighter-rouge">bash</code> isn’t the ideal language for this task because (in my opinion) it wasn’t meant to solve these kind of problems. Nevertheless, I wanted to expand my experience with <code class="highlighter-rouge">bash</code> and so I’ll attempt to solve all the AoC problems using this language.</p>
+  <p>I feel <a href="https://adventofcode.com/" target="_blank" rel="noopener">AoC</a> is a nice way to get to know the language of your choice. There's string manipulation, basic mathematics and more. <code class="highlighter-rouge">bash</code> isn't the ideal language for this task because (in my opinion) it wasn't meant to solve these kind of problems. Nevertheless, I wanted to expand my experience with <code class="highlighter-rouge">bash</code> and so I'll attempt to solve all the AoC problems using this language.</p>
 
-<p>I might not be able to solve the problems on the same day (heck, I’m starting almost a week late) and might even skip some problems altogether. I also plan to use common tools like <code class="highlighter-rouge">grep</code>, <code class="highlighter-rouge">sed</code>, <code class="highlighter-rouge">awk</code>, etc and not rely on pure bash.</p>
+<p>I might not be able to solve the problems on the same day (heck, I'm starting almost a week late) and might even skip some problems altogether. I also plan to use common tools like <code class="highlighter-rouge">grep</code>, <code class="highlighter-rouge">sed</code>, <code class="highlighter-rouge">awk</code>, etc and not rely on pure bash.</p>
 
 <h1 class="section-header">Index</h1>
 <ul>
   <li>Day 01 <a href="#d01p1">part 1</a> <a href="#d01p2">part 2</a></li>
   <li>Day 02 <a href="#d02p1">part 1</a> <a href="#d02p2">part 2</a></li>
   <li>Day 03 <a href="#d03p1">part 1</a> <a href="#d03p2">part 2</a></li>
+  <li>Day 04 <a href="#d04p1">part 1</a> <a href="#d04p2">part 2</a></li>
+  <li>Day 05 <a href="#d05p1">part 1</a> <a href="#d05p2">part 2</a></li>
 </ul>
 
 <div class="text-center py-4">· · ·</div>
@@ -191,7 +193,7 @@
 <h1 class="section-header">Day 01</h1>
 
 <h2 class="section-header pt-4" id="d01p1">Part 1</h2>
-<p>First, let’s get the first value and setup variables</p>
+<p>First, let's get the first value and setup variables</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">prev_value</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">head</span> <span class="nt">-1</span> <span class="nv">$INP_FILE</span><span class="si">)</span><span class="s2">"</span>
 <span class="c"># keep count in this variable</span>
 <span class="nv">inc_count</span><span class="o">=</span>0
@@ -212,7 +214,7 @@
 0
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">WRONG ANSWER</code>. Umm… what?! After opening the file and confirming that the answer indeed isn’t 0, I decided to do some print debugging…</p>
+<p><code class="highlighter-rouge">WRONG ANSWER</code>. Umm… what?! After opening the file and confirming that the answer indeed isn't 0, I decided to do some print debugging…</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'2,$p'</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span> | <span class="k">while </span><span class="nb">read </span>value<span class="p">;</span> <span class="k">do</span>
     <span class="o">((</span> value <span class="o">&gt;</span> prev_value <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span> inc_count++ <span class="o">))</span>
     <span class="nb">echo</span> <span class="nv">$inc_count</span>
@@ -241,9 +243,9 @@
 <p>Note that the variable originally declared outside is still 0.</p>
 
 <h2 class="section-header pt-4" id="d01p2">Part 2</h2>
-<p>Firstly, I’ll make a function, <code class="highlighter-rouge">part1</code> that solves part 1. It’ll accept a single argument: a filename which has the numbers</p>
+<p>Firstly, I'll make a function, <code class="highlighter-rouge">part1</code> that solves part 1. It'll accept a single argument: a filename which has the numbers</p>
 
-<p>We’re going to use <code class="highlighter-rouge">paste</code> and <a href="https://tldp.org/LDP/abs/html/process-sub.html" rel="noopener" target="_blank">process substitution</a> to calculate the window sum.</p>
+<p>We're going to use <code class="highlighter-rouge">paste</code> and <a href="https://tldp.org/LDP/abs/html/process-sub.html" rel="noopener" target="_blank">process substitution</a> to calculate the window sum.</p>
 
 <p>A little bit of background first: we want to offset the stream of numbers and want to see them side by side, very much like the illustration provided on the website:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>199  A
@@ -299,7 +301,7 @@ part1 <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">
 
 <h1 class="section-header">Day 02</h1>
 
-<p>There was nothing surprising or special about my solution for Day 02 so I’ll just put them here:</p>
+<p>There was nothing surprising or special about my solution for Day 02 so I'll just put them here:</p>
 
 <h2 class="section-header pt-4" id="d02p1">Part 1</h2>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>part1 <span class="o">{</span>
@@ -354,7 +356,7 @@ part1 <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">
 <h1 class="section-header">Day 03</h1>
 
 <h2 class="section-header pt-4" id="d03p1">Part 1</h2>
-<p>First, I’ll define a few global variables that’ll come handy in the solution. <code class="highlighter-rouge">INP_FILE</code>, like all other solutions and <code class="highlighter-rouge">N_COLS</code>.
+<p>First, I'll define a few global variables that'll come handy in the solution. <code class="highlighter-rouge">INP_FILE</code>, like all other solutions and <code class="highlighter-rouge">N_COLS</code>.
 Since the number of columns in each line is fixed, we can simply check the characters in the first line and remove 1 for the newline character.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># this counts the newline too</span>
 <span class="nv">N_COLS</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">head</span> <span class="nt">-1</span> <span class="s2">"</span><span class="nv">$INP_FILE</span><span class="s2">"</span> | <span class="nb">wc</span> <span class="nt">-c</span> <span class="si">)</span><span class="s2">"</span>
@@ -362,7 +364,7 @@ Since the number of columns in each line is fixed, we can simply check the chara
 <span class="o">((</span> N_COLS-- <span class="o">))</span>
 </code></pre></div></div>
 
-<p>With that done, I define a helper function that takes a file and calculates each columns’ sum (actually, it counts the number of lines that have a 1 at that place).
+<p>With that done, I define a helper function that takes a file and calculates each columns' sum (actually, it counts the number of lines that have a 1 at that place).
 I use <code class="highlighter-rouge">cut</code> to only look at that specific column.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>count_set_bits <span class="o">{</span>
     <span class="c"># count set bits at each position</span>
@@ -399,9 +401,9 @@ I use <code class="highlighter-rouge">cut</code> to only look at that specific c
 </code></pre></div></div>
 
 <h2 class="section-header pt-4" id="d03p2">Part 2</h2>
-<p>For part 2, we need to continuously filter the list until only one remains. Since the core logic for calculating for Oxygen and Carbon Dioxide is the same, I’ll only explain one here.</p>
+<p>For part 2, we need to continuously filter the list until only one remains. Since the core logic for calculating for Oxygen and Carbon Dioxide is the same, I'll only explain one here.</p>
 
-<p>I’m going to use intermediate files again. This is definitely possible to do without files but this just makes it a little easier.</p>
+<p>I'm going to use intermediate files again. This is definitely possible to do without files but this just makes it a little easier.</p>
 
 <h3 class="pt-4">Basic setup</h3>
 
@@ -420,7 +422,7 @@ I use <code class="highlighter-rouge">cut</code> to only look at that specific c
 </code></pre></div></div>
 
 <h3 class="pt-4">Filtering candidates</h3>
-<p>The other part of the puzzle is only keeping lines that we want to. This can be achieved by <code class="highlighter-rouge">grep</code>. When we’re looking at the <code class="highlighter-rouge">i</code>th column, the first <code class="highlighter-rouge">i-1</code> columns can be anything (“<code class="highlighter-rouge">.</code>” in regex). So, for example if I want my 6th character to be <code class="highlighter-rouge">Y</code> and don’t care about anything else, I’ll use the following regex:</p>
+<p>The other part of the puzzle is only keeping lines that we want to. This can be achieved by <code class="highlighter-rouge">grep</code>. When we're looking at the <code class="highlighter-rouge">i</code>th column, the first <code class="highlighter-rouge">i-1</code> columns can be anything ("<code class="highlighter-rouge">.</code>" in regex). So, for example if I want my 6th character to be <code class="highlighter-rouge">Y</code> and don't care about anything else, I'll use the following regex:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-E</span> <span class="s2">"^.{5}Y"</span>
 </code></pre></div></div>
 
@@ -477,6 +479,347 @@ I use <code class="highlighter-rouge">cut</code> to only look at that specific c
 
     </span><span class="nb">echo</span> <span class="s2">"ibase=2; </span><span class="nv">$o2_candidates</span><span class="s2"> * </span><span class="nv">$co2_candidates</span><span class="s2">"</span> | bc
     <span class="nb">rm</span> <span class="s2">"</span><span class="nv">$tmpfile</span><span class="s2">"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header">Day 04</h1>
+
+<h2 class="section-header pt-4" id="d04p2">Parts 1 and 2</h2>
+<p>Ok, this is where things got really interesting. For solving this, we need to cover a variety of concepts. Let's tackle them one by one and build towards the solution.</p>
+
+<h3 class="pt-4">Multi-dimensional arrays</h3>
+<p>The bingo card is a 2D board. Bash natively doesn't support multiple dimensional arrays. Obviously we can map any N-d array to 1-d just by multiplying and adding indices but something better exists. Some other approaches can be found in <a href="https://stackoverflow.com/q/16487258" target="_blank" rel="noopener">this SO question</a>.</p>
+
+<p>I used the associative array approach. Basically, it is like a hashmap (or <code class="highlighter-rouge">dict</code> in python, <code class="highlighter-rouge">Object</code> in js, etc) where the key is the index in the form <code class="highlighter-rouge">i,j</code> and the value is the element at <code class="highlighter-rouge">arr[i][j]</code>. Since we have multiple boards, I used 3 indices for this array: first for indexing the board and rest two for indexing inside the board.</p>
+
+<p>To facilitate fast number processing, I also store a mapping of number to index. When lets say <code class="highlighter-rouge">82</code> is called, I'll just use this LUT and update those specific boards only rather than iterating over all boards and checking each cell for <code class="highlighter-rouge">82</code>.</p>
+
+<p>Due to the requirements of this task, we need to keep track of which numbers have been marked. Some hack could've been arranged using negative numbers and adding one to everything but I chose to keep it simple and made another associative array, <code class="highlighter-rouge">bingo_cards_marked</code> that stores whether the number was marked or not.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># associative array</span>
+<span class="c"># key: [card index, row, col]</span>
+<span class="nb">declare</span> <span class="nt">-A</span> bingo_cards
+<span class="nb">declare</span> <span class="nt">-A</span> bingo_cards_marked
+
+<span class="k">function </span>read_input <span class="o">{</span>
+    <span class="c"># read the list of random numbers</span>
+    <span class="nv">IFS</span><span class="o">=</span>, <span class="nb">read</span> <span class="nt">-a</span> numbers &lt; &lt;<span class="o">(</span> <span class="nb">head</span> <span class="nt">-1</span> <span class="s2">"</span><span class="nv">$INP</span><span class="s2">"</span> <span class="o">)</span>
+
+    <span class="nb">local </span><span class="nv">bingo_idx</span><span class="o">=</span>0 <span class="nv">line_idx</span><span class="o">=</span>0 line bingo_row col key
+
+    <span class="k">while </span><span class="nb">read </span>line<span class="p">;</span> <span class="k">do</span>
+        <span class="c"># input next bingo card after 5 lines</span>
+        <span class="k">if</span> <span class="o">((</span> line_idx <span class="o">==</span> 5 <span class="o">))</span><span class="p">;</span> <span class="k">then
+            </span><span class="nv">line_idx</span><span class="o">=</span>0
+            <span class="o">((</span> bingo_idx++ <span class="o">))</span>
+        <span class="k">fi
+
+        </span><span class="nb">read</span> <span class="nt">-a</span> bingo_row <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span>
+        <span class="k">for </span>col <span class="k">in</span> <span class="si">$(</span> <span class="nb">seq </span>0 <span class="k">$((</span> BINGO_COLS <span class="o">-</span> <span class="m">1</span> <span class="k">))</span> <span class="si">)</span><span class="p">;</span> <span class="k">do
+            </span><span class="nv">key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$bingo_idx</span><span class="s2">,</span><span class="nv">$line_idx</span><span class="s2">,</span><span class="nv">$col</span><span class="s2">"</span>
+            bingo_cards[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]=</span><span class="k">${</span><span class="nv">bingo_row</span><span class="p">[</span><span class="nv">$col</span><span class="p">]</span><span class="k">}</span>
+            <span class="c"># all numbers are unmarked in the beginning</span>
+            bingo_cards_marked[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]=</span>0
+
+            <span class="c"># store indices separated by space</span>
+            num2idx[<span class="k">${</span><span class="nv">bingo_cards</span><span class="p">[</span><span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="p">]</span><span class="k">}</span><span class="o">]=</span><span class="s2">"</span><span class="si">$(</span> <span class="nb">echo</span> <span class="k">${</span><span class="nv">num2idx</span><span class="p">[</span><span class="k">${</span><span class="nv">bingo_cards</span><span class="p">[</span><span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="p">]</span><span class="k">}</span><span class="p">]</span><span class="k">}</span> <span class="nv">$key</span> <span class="si">)</span><span class="s2">"</span>
+        <span class="k">done</span>
+
+        <span class="o">((</span> line_idx++ <span class="o">))</span>
+        <span class="c">#   this skips empty lines</span>
+        <span class="c">#   vvvvvvvvvvvvvvvvvvvv</span>
+    <span class="k">done</span> &lt; &lt;<span class="o">(</span><span class="nb">grep</span> <span class="nt">-v</span> <span class="s1">'^$'</span> <span class="s2">"</span><span class="nv">$INP</span><span class="s2">"</span> | <span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'2,$p'</span><span class="o">)</span>
+    <span class="c">#                              ^^^^^^^^^^^^^</span>
+    <span class="c">#                              since first line has random number list</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 class="pt-4">Checking for bingo</h3>
+<p>This was another piece of the puzzle which is going to be used repeatedly so the logic best resides inside a function. Given an index of a bingo card as argument, this goes over the rows and columns and checks whether atleast a single cell was unmarked. If nothing was unmarked, it returns 0 otherwise, it returns 1.</p>
+
+<p>In bash, the <code class="highlighter-rouge">return</code> keyword in functions isn't what you expect it to be. As seen in the earlier problems, to really "return" from a function, we print it. In bash, the return keyword does two things:</p>
+<ol>
+  <li><strong>stop execution of the function</strong>: even if you're inside a loop, you'll get out of the function</li>
+  <li><strong>set the status code</strong>: a status code of 0 means success and anything else means failure. <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">test</code> use this definition</li>
+</ol>
+
+<p><a href="https://stackoverflow.com/a/4419956" target="_blank" rel="noopener">This SO answer</a> explains this in more detail.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>bingo_done <span class="o">{</span>
+    <span class="c"># receives an index of bingo to check from bingo card list</span>
+
+    <span class="nb">local </span>bingo_dimen found_invalid_row found_invalid_col row_wise_key col_wise_key i j
+    <span class="nv">bingo_dimen</span><span class="o">=</span><span class="nv">$BINGO_ROWS</span>
+
+    <span class="k">for </span>i <span class="k">in</span> <span class="si">$(</span> <span class="nb">seq </span>0 <span class="k">$((</span> bingo_dimen <span class="o">-</span> <span class="m">1</span> <span class="k">))</span> <span class="si">)</span><span class="p">;</span> <span class="k">do
+        </span><span class="nv">found_invalid_row</span><span class="o">=</span>0
+        <span class="nv">found_invalid_col</span><span class="o">=</span>0
+
+        <span class="k">for </span>j <span class="k">in</span> <span class="si">$(</span> <span class="nb">seq </span>0 <span class="k">$((</span> bingo_dimen <span class="o">-</span> <span class="m">1</span> <span class="k">))</span> <span class="si">)</span><span class="p">;</span> <span class="k">do
+            </span><span class="nv">row_wise_key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">,</span><span class="nv">$i</span><span class="s2">,</span><span class="nv">$j</span><span class="s2">"</span>
+            <span class="nv">col_wise_key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">,</span><span class="nv">$j</span><span class="s2">,</span><span class="nv">$i</span><span class="s2">"</span>
+
+            <span class="o">((</span> bingo_cards_marked[<span class="s2">"</span><span class="nv">$row_wise_key</span><span class="s2">"</span><span class="o">]</span> <span class="o">==</span> 0 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">found_invalid_row</span><span class="o">=</span>1
+            <span class="o">((</span> bingo_cards_marked[<span class="s2">"</span><span class="nv">$col_wise_key</span><span class="s2">"</span><span class="o">]</span> <span class="o">==</span> 0 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">found_invalid_col</span><span class="o">=</span>1
+        <span class="k">done</span>
+
+        <span class="c"># either didnt find invalid row or didnt find invalid col</span>
+        <span class="o">((</span> found_invalid_row <span class="k">*</span> found_invalid_col <span class="o">==</span> 0 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="k">return </span>0
+    <span class="k">done
+
+    return </span>1
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>I also need to keep track of which bingo cards have won. The reason is twofold:</p>
+<ol>
+  <li>We don't mark new numbers on a card that has already won</li>
+  <li>It is needed in the way I'm solving this problem, to make sure that in every iteration I don't double count a card.</li>
+</ol>
+
+<p>For this and for the solution to the problem itself, I'm using an array that stores <code class="highlighter-rouge">card_number,score</code> pairs in the order the cards won.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># list of bingo cards that were finished</span>
+<span class="c"># in order and their score</span>
+<span class="nb">declare</span> <span class="nt">-a</span> win_order_and_score
+
+<span class="k">function </span>bingo_win_recorded <span class="o">{</span>
+    <span class="c"># checks whether the card had already won</span>
+    <span class="nb">local </span>idx score winner
+
+    <span class="k">for </span>winner <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">win_order_and_score</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
+        </span><span class="nv">IFS</span><span class="o">=</span>, <span class="nb">read </span>idx score <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$winner</span><span class="s2">"</span>
+        <span class="o">((</span> idx <span class="o">==</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="k">return </span>0
+    <span class="k">done</span>
+
+    <span class="c"># $? will be 1, if statements will fail etc</span>
+    <span class="k">return </span>1
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now, we come to the actual bingo game. Since we're storing all the indices for each number, we just need to iterate over them, mark the number and check whether its a bingo in the subset of all cards.</p>
+
+<p>Going into a little more depth in my solution here, <code class="highlighter-rouge">num2idx</code> stores a space separated list of indices. For example if the number <code class="highlighter-rouge">82</code> was present in cards 4, 9 and 13 at the top left, top right and bottom left corners respectively, <code class="highlighter-rouge">num2idx[82]</code> would look like <code class="highlighter-rouge">3,0,0 8,0,4 12,4,0</code>. Note the space between comma separated 3-tuples. The -1 is due to 0-indexing.</p>
+
+<p>We've already seen that we can use <code class="highlighter-rouge">cut</code> to separate out the individual items but here, we'll have to change the delimiter to a newline first. Instead, we use <code class="highlighter-rouge">awk</code>. Now <code class="highlighter-rouge">awk</code>, like <code class="highlighter-rouge">cut</code> also assumes that the different "rows" are in individual lines but we can change that using <code class="highlighter-rouge">RS</code> (record separator).</p>
+
+<p>So, to extract just the card index, we can do something like:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">awk</span> <span class="nt">-vRS</span><span class="o">=</span><span class="s1">' '</span> <span class="nt">-F</span>, <span class="s1">'{ print $1 }'</span> <span class="o">&lt;&lt;&lt;</span> <span class="s2">"3,0,0 8,0,4 12,4,0"</span>
+<span class="c"># Output:</span>
+3
+8
+12
+</code></pre></div></div>
+
+<p>Basics aside, this is how I go through the cards for which the number was called just now</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>check_bingo_list <span class="o">{</span>
+    <span class="c"># receives an array of $bingo_idx,$line_idx,$col (basically whatever is stored in num2idx)</span>
+    <span class="nv">bingo_idx_to_check</span><span class="o">=(</span><span class="si">$(</span> <span class="nb">awk</span> <span class="nt">-vRS</span><span class="o">=</span><span class="s1">' '</span> <span class="nt">-F</span>, <span class="s1">'{ print $1 }'</span> <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="si">)</span><span class="o">)</span>
+
+    <span class="nv">bingo_found</span><span class="o">=()</span>
+
+    <span class="k">for </span>idx <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">bingo_idx_to_check</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do</span>
+        <span class="c">#                    we dont want to add same card again</span>
+        <span class="c">#                    vvvvvvvvvvvvvvvvvvvvvvvvv</span>
+        bingo_done <span class="s2">"</span><span class="nv">$idx</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> bingo_win_recorded <span class="nv">$idx</span> <span class="o">&amp;&amp;</span> bingo_found+<span class="o">=(</span><span class="nv">$idx</span><span class="o">)</span>
+    <span class="k">done
+
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">bingo_found</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>With all the pieces in place, we can now simulate the bingo game:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>simulate_game <span class="o">{</span>
+    read_input
+
+    <span class="c"># loop over the list of random numbers</span>
+    <span class="k">for </span>n <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">numbers</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do</span>
+        <span class="c"># update all bingo card values using `num2idx`</span>
+        <span class="k">for </span>idx <span class="k">in</span> <span class="k">${</span><span class="nv">num2idx</span><span class="p">[</span><span class="nv">$n</span><span class="p">]</span><span class="k">}</span><span class="p">;</span> <span class="k">do
+            </span><span class="nv">IFS</span><span class="o">=</span>, <span class="nb">read </span>bingo_card _unused _unused <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$idx</span><span class="s2">"</span>
+            <span class="c"># dont mark new numbers if card has already won</span>
+            bingo_win_recorded <span class="nv">$bingo_card</span> <span class="o">||</span> bingo_cards_marked[<span class="s2">"</span><span class="nv">$idx</span><span class="s2">"</span><span class="o">]=</span>1
+        <span class="k">done</span>
+
+        <span class="c"># check if new bingo</span>
+        <span class="c"># check_bingo_list already filters for old winners</span>
+        <span class="nv">bingo_found_idxs</span><span class="o">=(</span><span class="si">$(</span> check_bingo_list <span class="s2">"</span><span class="k">${</span><span class="nv">num2idx</span><span class="p">[</span><span class="nv">$n</span><span class="p">]</span><span class="k">}</span><span class="s2">"</span> <span class="si">)</span><span class="o">)</span>
+
+        <span class="c"># calculate and store score</span>
+        <span class="k">for </span>idx <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">bingo_found_idxs</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
+            </span><span class="nb">sum</span><span class="o">=</span>0
+            <span class="k">for </span>row <span class="k">in</span> <span class="si">$(</span> <span class="nb">seq </span>0 <span class="k">$((</span> BINGO_ROWS <span class="o">-</span> <span class="m">1</span> <span class="k">))</span> <span class="si">)</span><span class="p">;</span> <span class="k">do
+                for </span>col <span class="k">in</span> <span class="si">$(</span> <span class="nb">seq </span>0 <span class="k">$((</span> BINGO_COLS <span class="o">-</span> <span class="m">1</span> <span class="k">))</span> <span class="si">)</span><span class="p">;</span> <span class="k">do
+                    </span><span class="nv">key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$idx</span><span class="s2">,</span><span class="nv">$row</span><span class="s2">,</span><span class="nv">$col</span><span class="s2">"</span>
+                    <span class="o">((</span> bingo_cards_marked[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]</span> <span class="o">==</span> 0 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span> <span class="nb">sum</span> +<span class="o">=</span> bingo_cards[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]</span> <span class="o">))</span>
+                <span class="k">done
+            done
+
+            </span>win_order_and_score+<span class="o">=(</span><span class="s2">"</span><span class="nv">$idx</span><span class="s2">,</span><span class="k">$((</span> n<span class="o">*</span><span class="nb">sum</span> <span class="k">))</span><span class="s2">"</span><span class="o">)</span>
+        <span class="k">done
+    done</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now, we have the order in which boards won and their score stored in <code class="highlighter-rouge">win_order_and_score</code>. To solve parts 1 and 2, we just need to check the first and last element after calling the function:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>simulate_game
+
+<span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">win_order_and_score</span><span class="p">[0]</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">win_order_and_score</span><span class="p">[-1]</span><span class="k">}</span><span class="s2">"</span>
+<span class="c"># Output:</span>
+88,10374
+68,24742
+</code></pre></div></div>
+
+<p>While we can ignore the bingo card index, I want to see just the answers, like for other days. We can use parameter substitution:</p>
+<blockquote class="blockquote"><a href="https://tldp.org/LDP/abs/html/parameter-substitution.html" target="_blank" rel="noopener">${var#Pattern}, ${var##Pattern}</a>
+<p>
+${var#Pattern}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Remove from $var the <i>shortest</i> part of $Pattern that matches the <i>front end</i> of $var.
+</p>
+<p>
+${var##Pattern}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Remove from $var the <i>longest</i> part of $Pattern that matches the <i>front end</i> of $var.
+</p>
+</blockquote>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>simulate_game
+
+<span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">win_order_and_score</span><span class="p">[0]##*,</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">win_order_and_score</span><span class="p">[-1]##*,</span><span class="k">}</span><span class="s2">"</span>
+<span class="c"># Output:</span>
+10374
+24742
+</code></pre></div></div>
+
+<div class="text-center py-4">· · ·</div>
+
+<h1 class="section-header">Day 05</h1>
+
+<h2 class="section-header pt-4" id="d05p1">Part 1</h2>
+<p>The 2D array part should be clear, thanks to day 4's problem.</p>
+
+<p>Since we can deal with a single delimiter using <code class="highlighter-rouge">read</code> and <code class="highlighter-rouge">IFS</code>, its better to convert the ` -&gt; ` to <code class="highlighter-rouge">,</code>. While reading the input, we'll also figure out the total number of rows and cols.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">N_ROW</span><span class="o">=</span>0
+<span class="nv">N_COL</span><span class="o">=</span>0
+
+<span class="nb">declare</span> <span class="nt">-a</span> input
+<span class="nb">declare</span> <span class="nt">-A</span> grid
+
+<span class="k">function </span>read_input <span class="o">{</span>
+    <span class="c"># input is comma separated now</span>
+    <span class="nv">input</span><span class="o">=(</span><span class="si">$(</span> <span class="nb">sed</span> <span class="s1">'s/ -&gt; /,/'</span> <span class="s2">"</span><span class="nv">$INP</span><span class="s2">"</span> <span class="si">)</span><span class="o">)</span>
+
+    <span class="nb">local </span>line x1 y1 x2 y2
+
+    <span class="k">for </span>line <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">input</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
+        </span><span class="nv">IFS</span><span class="o">=</span>, <span class="nb">read </span>x1 y1 x2 y2 <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span>
+
+        <span class="o">((</span> x1 + 1 <span class="o">&gt;</span> N_COL <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">N_COL</span><span class="o">=</span><span class="k">$((</span> x1 <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
+        <span class="o">((</span> x2 + 1 <span class="o">&gt;</span> N_COL <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">N_COL</span><span class="o">=</span><span class="k">$((</span> x2 <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
+        <span class="o">((</span> y1 + 1 <span class="o">&gt;</span> N_ROW <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">N_ROW</span><span class="o">=</span><span class="k">$((</span> y1 <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
+        <span class="o">((</span> y2 + 1 <span class="o">&gt;</span> N_ROW <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">N_ROW</span><span class="o">=</span><span class="k">$((</span> y2 <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
+    <span class="k">done</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>A helper function to initialize the associative array (sets all values to 0):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>init_grid <span class="o">{</span>
+    <span class="nb">local </span>i j key
+
+    <span class="k">for</span> <span class="o">((</span> <span class="nv">i</span><span class="o">=</span>0<span class="p">;</span> i &lt; N_ROW<span class="p">;</span> i++ <span class="o">))</span><span class="p">;</span> <span class="k">do
+        for</span> <span class="o">((</span> <span class="nv">j</span><span class="o">=</span>0<span class="p">;</span> j &lt; N_COL<span class="p">;</span> j++ <span class="o">))</span><span class="p">;</span> <span class="k">do
+            </span><span class="nv">key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$i</span><span class="s2">,</span><span class="nv">$j</span><span class="s2">"</span>
+            grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]=</span>0
+        <span class="k">done
+    done</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>For looping through the coordinates, we can use <code class="highlighter-rouge">seq</code>. <code class="highlighter-rouge">seq</code> takes an "increment" parameter that we can set to <code class="highlighter-rouge">-1</code> for the descending values.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">seq </span>5 <span class="nt">-1</span> 2
+<span class="c"># Output:</span>
+5
+4
+3
+2
+</code></pre></div></div>
+
+<p>Rest of part 1 is simple:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>straight_lines <span class="o">{</span>
+    <span class="nb">local </span>i j key line x1 y1 x2 y2 increment x y n_dangerous
+
+    <span class="k">for </span>line <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">input</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
+        </span><span class="nv">IFS</span><span class="o">=</span>, <span class="nb">read </span>x1 y1 x2 y2 <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span>
+        <span class="c"># y doesn't change</span>
+        <span class="c"># seq on x</span>
+        <span class="k">if</span> <span class="o">((</span> y1 <span class="o">==</span> y2 <span class="o">))</span><span class="p">;</span> <span class="k">then
+            </span><span class="nv">y</span><span class="o">=</span><span class="nv">$y1</span>
+            <span class="o">((</span> x1 <span class="o">&gt;</span> x2 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">increment</span><span class="o">=</span><span class="nt">-1</span> <span class="o">||</span> <span class="nv">increment</span><span class="o">=</span>1
+            <span class="k">for </span>x <span class="k">in</span> <span class="si">$(</span> <span class="nb">seq</span> <span class="s2">"</span><span class="nv">$x1</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$increment</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$x2</span><span class="s2">"</span> <span class="si">)</span><span class="p">;</span> <span class="k">do
+                </span><span class="nv">key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$y</span><span class="s2">,</span><span class="nv">$x</span><span class="s2">"</span>
+                grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]=</span><span class="k">$((</span> grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]</span> <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
+            <span class="k">done</span>
+        <span class="c"># x doesn't change</span>
+        <span class="c"># seq on y</span>
+        <span class="k">elif</span> <span class="o">((</span> x1 <span class="o">==</span> x2 <span class="o">))</span><span class="p">;</span> <span class="k">then
+            </span><span class="nv">x</span><span class="o">=</span><span class="nv">$x1</span>
+            <span class="o">((</span> y1 <span class="o">&gt;</span> y2 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">increment</span><span class="o">=</span><span class="nt">-1</span> <span class="o">||</span> <span class="nv">increment</span><span class="o">=</span>1
+            <span class="k">for </span>y <span class="k">in</span> <span class="si">$(</span> <span class="nb">seq</span> <span class="s2">"</span><span class="nv">$y1</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$increment</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$y2</span><span class="s2">"</span> <span class="si">)</span><span class="p">;</span> <span class="k">do
+                </span><span class="nv">key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$y</span><span class="s2">,</span><span class="nv">$x</span><span class="s2">"</span>
+                grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]=</span><span class="k">$((</span> grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]</span> <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
+            <span class="k">done
+        fi
+    done
+
+    </span><span class="nv">n_dangerous</span><span class="o">=</span>0
+
+    <span class="k">for</span> <span class="o">((</span> <span class="nv">i</span><span class="o">=</span>0<span class="p">;</span> i &lt; N_ROW<span class="p">;</span> i++ <span class="o">))</span><span class="p">;</span> <span class="k">do
+        for</span> <span class="o">((</span> <span class="nv">j</span><span class="o">=</span>0<span class="p">;</span> j &lt; N_COL<span class="p">;</span> j++ <span class="o">))</span><span class="p">;</span> <span class="k">do
+            </span><span class="nv">key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$i</span><span class="s2">,</span><span class="nv">$j</span><span class="s2">"</span>
+            <span class="o">((</span> grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]</span> <span class="o">&gt;</span> 1 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span> n_dangerous++ <span class="o">))</span>
+        <span class="k">done
+    done
+
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$n_dangerous</span><span class="s2">"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 class="section-header pt-4" id="d05p2">Part 2</h2>
+<p>Since the second part asks for all the lines (both straight and diagonal), we can use the same grid after part 1 and just add the diagonal values to it.</p>
+
+<p>Since both <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> are changing now, we'll need two <code class="highlighter-rouge">seq</code>s. Their outputs can be merged using <code class="highlighter-rouge">paste</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>diagonal_lines <span class="o">{</span>
+    <span class="nb">local </span>i j key line x1 y1 x2 y2 x_inc y_inc x y n_dangerous
+
+    <span class="k">for </span>line <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">input</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do
+        </span><span class="nv">IFS</span><span class="o">=</span>, <span class="nb">read </span>x1 y1 x2 y2 <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span>
+        <span class="o">((</span> x1 <span class="o">&gt;</span> x2 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">x_inc</span><span class="o">=</span><span class="nt">-1</span> <span class="o">||</span> <span class="nv">x_inc</span><span class="o">=</span>1
+        <span class="o">((</span> y1 <span class="o">&gt;</span> y2 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nv">y_inc</span><span class="o">=</span><span class="nt">-1</span> <span class="o">||</span> <span class="nv">y_inc</span><span class="o">=</span>1
+
+        <span class="c"># skip straight lines</span>
+        <span class="o">((</span> x1 <span class="o">==</span> x2 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="k">continue</span>
+        <span class="o">((</span> y1 <span class="o">==</span> y2 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="k">continue
+
+        while </span><span class="nb">read </span>coords<span class="p">;</span> <span class="k">do
+            </span><span class="nv">IFS</span><span class="o">=</span>, <span class="nb">read </span>x y <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$coords</span><span class="s2">"</span>
+            <span class="nv">key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$y</span><span class="s2">,</span><span class="nv">$x</span><span class="s2">"</span>
+            grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]=</span><span class="k">$((</span> grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]</span> <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
+        <span class="k">done</span> <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="si">$(</span> <span class="nb">paste</span> <span class="nt">-d</span>, &lt;<span class="o">(</span> <span class="nb">seq</span> <span class="s2">"</span><span class="nv">$x1</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$x_inc</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$x2</span><span class="s2">"</span> <span class="o">)</span> &lt;<span class="o">(</span> <span class="nb">seq</span> <span class="s2">"</span><span class="nv">$y1</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$y_inc</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$y2</span><span class="s2">"</span> <span class="o">)</span> <span class="si">)</span><span class="s2">"</span>
+    <span class="k">done
+
+    </span><span class="nv">n_dangerous</span><span class="o">=</span>0
+
+    <span class="k">for</span> <span class="o">((</span> <span class="nv">i</span><span class="o">=</span>0<span class="p">;</span> i &lt; N_ROW<span class="p">;</span> i++ <span class="o">))</span><span class="p">;</span> <span class="k">do
+        for</span> <span class="o">((</span> <span class="nv">j</span><span class="o">=</span>0<span class="p">;</span> j &lt; N_COL<span class="p">;</span> j++ <span class="o">))</span><span class="p">;</span> <span class="k">do
+            </span><span class="nv">key</span><span class="o">=</span><span class="s2">"</span><span class="nv">$i</span><span class="s2">,</span><span class="nv">$j</span><span class="s2">"</span>
+            <span class="o">((</span> grid[<span class="s2">"</span><span class="nv">$key</span><span class="s2">"</span><span class="o">]</span> <span class="o">&gt;</span> 1 <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span> n_dangerous++ <span class="o">))</span>
+        <span class="k">done
+    done
+
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$n_dangerous</span><span class="s2">"</span>
 <span class="o">}</span>
 </code></pre></div></div>
 

@@ -11,7 +11,7 @@
   
     <meta property="og:title" content="Editing in vim from anywhere*">
     <meta property="og:image" content="https://yoogottamk.github.io/assets/images/posts/edit-vim.webp">
-    <meta property="og:description" content="I love vim. Once you start using it (properly), you want it everywhere. The modal editing is……wait, I don’t need to sell vim to you, you came here because you...">
+    <meta property="og:description" content="I love vim. Once you start using it (properly), you want it everywhere. The modal editing is……wait, I don't need to sell vim to you, you came here because you...">
   
   
   
@@ -177,7 +177,7 @@
 <div class="container" id="post-body">
   <p>I love vim. Once you start using it (properly), you want it everywhere. The modal editing is…</p>
 
-<p>…wait, I don’t need to sell vim to you, you came here because you already know how great it is!</p>
+<p>…wait, I don't need to sell vim to you, you came here because you already know how great it is!</p>
 
 <h2 class="section-header pt-4">(*)</h2>
 <p>This <em>should</em> work if you are using X11.</p>
@@ -247,7 +247,7 @@ xdotool key ctrl+v
 <h2 class="section-header pt-4">How to use</h2>
 <ol>
   <li>Save this file somewhere and make sure it can be executed (<code class="highlighter-rouge">chmod +x</code>)</li>
-  <li>If not already present, <a href="https://yoogottamk.github.io/blog/managing-path" target="_blank" rel="noopener">add the directory to <code class="highlighter-rouge">PATH</code></a> (not exactly a necessity but now it’s easier to run it manually too)</li>
+  <li>If not already present, <a href="https://yoogottamk.github.io/blog/managing-path" target="_blank" rel="noopener">add the directory to <code class="highlighter-rouge">PATH</code></a> (not exactly a necessity but now it's easier to run it manually too)</li>
   <li>Make this accessible by a keyboard shortcut. (e.g. <a href="https://askubuntu.com/a/525495" target="_blank" rel="noopener">for ubuntu</a>)</li>
   <li>Enjoy</li>
 </ol>
@@ -255,14 +255,14 @@ xdotool key ctrl+v
 <p>Now, whenever I want to edit something in vim, I select the desired portion and press the hotkey and voila, my text is in vim! Edit, save and close, and the original text gets replaced by this!</p>
 
 <h2 class="section-header pt-4">i3 users</h2>
-<p>A bindsym will do the job. You might want to use a terminal which you don’t use regularly and make it a floating window.</p>
+<p>A bindsym will do the job. You might want to use a terminal which you don't use regularly and make it a floating window.</p>
 
-<p>Here’s what I did (i3conf):</p>
+<p>Here's what I did (i3conf):</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bindsym $mod+q exec vimedit
 for_window [class="UXTerm"] floating enable
 </code></pre></div></div>
 
-<p>This made the script available to me with <code class="highlighter-rouge">super+q</code>. I don’t have to specify the whole path to the file since I update <code class="highlighter-rouge">PATH</code> before loading i3.</p>
+<p>This made the script available to me with <code class="highlighter-rouge">super+q</code>. I don't have to specify the whole path to the file since I update <code class="highlighter-rouge">PATH</code> before loading i3.</p>
 
 <div class="text-center py-4">· · ·</div>
 

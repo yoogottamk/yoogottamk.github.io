@@ -194,7 +194,7 @@
 
 <h1 class="section-header">The usual method</h1>
 
-<p>The “standard” way of setting the <code class="highlighter-rouge">PATH</code>, as seen in the top search result on <a href="https://superuser.com/a/488175" target="_blank" rel="noopener">superuser</a> is this:</p>
+<p>The "standard" way of setting the <code class="highlighter-rouge">PATH</code>, as seen in the top search result on <a href="https://superuser.com/a/488175" target="_blank" rel="noopener">superuser</a> is this:</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/your/new/path/here
 </code></pre></div></div>
 
@@ -208,7 +208,7 @@
 ...
 </code></pre></div></div>
 
-<p>This is bad. Updating the variable to remove a directory can be time consuming, and what if you want to give preference to a directory for an executable? You’ll have to change the order in which they are added to <code class="highlighter-rouge">PATH</code>. Doing it when your <code class="highlighter-rouge">PATH</code> updates are scattered all over the place doesn’t make it easy.</p>
+<p>This is bad. Updating the variable to remove a directory can be time consuming, and what if you want to give preference to a directory for an executable? You'll have to change the order in which they are added to <code class="highlighter-rouge">PATH</code>. Doing it when your <code class="highlighter-rouge">PATH</code> updates are scattered all over the place doesn't make it easy.</p>
 
 <p>Even if you write all the directories in a single line, it can get a little too long to handle sometimes:</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/your/new/path/here:/another/new/path/here:/oh/and/a/second/too:/here/we/go/again:...
@@ -268,7 +268,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;If parameter is null or unset, nothing is substituted, otherwise the expansion of word is substituted.
 </blockquote>
 
-<p>So, if either of them are empty, the corresponding `<code class="highlighter-rouge">:</code>` won’t be added. Cool!</p>
+<p>So, if either of them are empty, the corresponding `<code class="highlighter-rouge">:</code>` won't be added. Cool!</p>
 
 <p>This way, you can easily add/remove directories from <code class="highlighter-rouge">PATH</code> and easily manage the order too.</p>
 

@@ -11,7 +11,7 @@
   
     <meta property="og:title" content="Port based routing">
     <meta property="og:image" content="https://yoogottamk.github.io/assets/images/posts/split-path.webp">
-    <meta property="og:description" content="Recently, my ISP started blocking outbound ssh connections[*] and that hindered my workflow a lot. The only other internet connection I had was my mobile phone’s wireless hotspot (limited data)....">
+    <meta property="og:description" content="Recently, my ISP started blocking outbound ssh connections[*] and that hindered my workflow a lot. The only other internet connection I had was my mobile phone's wireless hotspot (limited data)....">
   
   
   
@@ -175,7 +175,7 @@
 </div>
 
 <div class="container" id="post-body">
-  <p>Recently, my ISP started blocking outbound ssh connections[*] and that hindered my workflow a lot. The only other internet connection I had was my mobile phone’s wireless hotspot (limited data). Somehow, I need to send ONLY the ssh packets through my wireless interface. [<a href="#script">skip to script</a>]</p>
+  <p>Recently, my ISP started blocking outbound ssh connections[*] and that hindered my workflow a lot. The only other internet connection I had was my mobile phone's wireless hotspot (limited data). Somehow, I need to send ONLY the ssh packets through my wireless interface. [<a href="#script">skip to script</a>]</p>
 
 <h2 class="section-header pt-4">(*)</h2>
 <p>they blocked port 22 and a few others (no <a href="https://www.wikiwand.com/en/Deep_packet_inspection" target="_blank" rel="noopener">deep packet inspection</a>)</p>
@@ -186,7 +186,7 @@
 
 <h1 class="section-header">The solution</h1>
 
-<p>I’m connected to the ISP through my ethernet cable, so my wireless interface was free.</p>
+<p>I'm connected to the ISP through my ethernet cable, so my wireless interface was free.</p>
 
 <h2 class="section-header pt-4">Step 1: Mark packets</h2>
 <p>We can use iptables to mark the tcp packets that are going through my eth interface (<code class="highlighter-rouge">eno1</code>) that have destination port 22 (ssh runs on 22 by default)</p>
@@ -205,7 +205,7 @@
 </code></pre></div></div>
 
 <h2 class="section-header pt-4">Step 3: Fix packets</h2>
-<p>Unfortunately, this setup wouldn’t work. The reason is that although those packets will now go through <code class="highlighter-rouge">wlo1</code>, the source IP is messed up (it still would be my IP on <code class="highlighter-rouge">eno1</code> network). This will cause all packets to drop. To fix this, we can do <a href="https://www.wikiwand.com/en/Network_address_translation" rel="noopener" target="_blank">Network Address Translation (NAT)</a></p>
+<p>Unfortunately, this setup wouldn't work. The reason is that although those packets will now go through <code class="highlighter-rouge">wlo1</code>, the source IP is messed up (it still would be my IP on <code class="highlighter-rouge">eno1</code> network). This will cause all packets to drop. To fix this, we can do <a href="https://www.wikiwand.com/en/Network_address_translation" rel="noopener" target="_blank">Network Address Translation (NAT)</a></p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>iptables <span class="nt">-t</span> nat <span class="nt">-I</span> POSTROUTING <span class="nt">-o</span> wlo1 <span class="nt">-p</span> tcp <span class="nt">--dport</span> 22 <span class="nt">-j</span> SNAT <span class="nt">--to</span> 192.168.0.2
 </code></pre></div></div>
@@ -218,7 +218,7 @@
 
 <h1 class="section-header">Final script</h1>
 
-<p>This script takes care of setting up the rules and deleting them when the task is done. It also figures out the gateway and device’s IP on the wireless network.</p>
+<p>This script takes care of setting up the rules and deleting them when the task is done. It also figures out the gateway and device's IP on the wireless network.</p>
 
 <!--
   this section was taken from
