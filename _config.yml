@@ -5,7 +5,8 @@ email: "yoogottamk@outlook.com"
 github_username: "yoogottamk"
 timezone: "Asia/Kolkata"
 exclude: ["package*.json", "gulpfile.js", "README.md", "screens"]
-
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
 defaults:
   -
     scope:
