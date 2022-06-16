@@ -2,6 +2,7 @@
 layout: post
 blogTitle: How I manage PATH
 blogImage: path.webp
+published: false
 tags:
  - PATH
  - GNU/Linux
